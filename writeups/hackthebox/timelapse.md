@@ -87,7 +87,7 @@ the taking:
 Get-ADComputer -Identity <DC-HOSTNAME> -Properties ms-Mcs-AdmPwd
 ```
 
-![retrieving the DC's LAPS password](./assets/timelapse/03-laps-password.png)
+![retrieving the DC's LAPS password](./assets/timelapse/03-laps-admin-credential.png)
 
 That password gave a WinRM session as Administrator and the root flag.
 

@@ -50,7 +50,7 @@ just as good as plaintext:
 gpp-decrypt <cpassword-blob>
 ```
 
-![GPP cpassword found in Groups.xml](./assets/active/02-gpp-cpassword.png)
+![GPP cpassword found in Groups.xml](./assets/active/02-groups-xml-cleartext-cred.png)
 
 This recovered credentials for `SVC_TGS`. Rechecking shares with that account
 opened up a `Users` share containing the user flag.
