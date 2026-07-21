@@ -1,0 +1,18 @@
+# Nigdy nie commituj wrażliwych/prywatnych rzeczy
+*.ovpn
+*.pem
+*.key
+*_creds*
+*password*
+*.local
+scratch/
+private/
+nmap/raw/
+
+# Personal working notes — not for the public repo
+SETUP-GUIDE.md
+PUBLISHING-CHECKLIST.md
+# Pliki narzędzi
+*.pyc
+__pycache__/
+.DS_Store
