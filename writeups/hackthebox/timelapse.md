@@ -27,6 +27,8 @@ controller.
 sudo nmap -sVC 10.129.227.113
 ```
 
+![nmap service scan](./assets/timelapse/01-nmap.png)
+
 An AD host with SMB open. An anonymous/guest SMB listing turned up a
 `Shares` folder containing `winrm_backup.zip` — a name that's essentially an
 invitation, since a backup of WinRM configuration almost always means
@@ -35,6 +37,8 @@ certificate or credential material.
 ---
 
 ## Foothold / Initial Access
+
+![SMB share listing and pulling winrm_backup.zip](./assets/timelapse/02-smb-winrm-backup.png)
 
 The ZIP was password-protected. Rather than guess, I extracted a crackable
 hash from the archive itself and let `john` do the guessing:
@@ -82,6 +86,8 @@ the taking:
 ```powershell
 Get-ADComputer -Identity <DC-HOSTNAME> -Properties ms-Mcs-AdmPwd
 ```
+
+![retrieving the DC's LAPS password](./assets/timelapse/03-laps-password.png)
 
 That password gave a WinRM session as Administrator and the root flag.
 

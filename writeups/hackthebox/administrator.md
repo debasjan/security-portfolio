@@ -27,6 +27,8 @@ finally DCSync rights.
 nmap -sC -sV -p- 10.129.10.95
 ```
 
+![nmap service scan](./assets/administrator/01-nmap.png)
+
 FTP, DNS, Kerberos, RPC, LDAP — `administrator.htb`. With the provided starting
 credentials (`olivia`), BloodHound collection was the obvious first move on an
 ACL-heavy box like this:
@@ -39,6 +41,8 @@ bloodhound-python -d administrator.htb -c All -u olivia -p '<PASSWORD>' -ns 10.1
 
 ## Foothold / Initial Access
 
+![BloodHound collection run](./assets/administrator/03-bloodhound-collection.png)
+
 BloodHound showed `olivia` holds **`GenericAll`** over the user `michael` —
 full control of the object, including the ability to reset his password
 without knowing the old one:
@@ -46,6 +50,8 @@ without knowing the old one:
 ```bash
 net rpc password "michael" "<NEW_PASSWORD>" -U "administrator.htb"/"olivia"%"<PASSWORD>" -S 10.129.10.95
 ```
+
+![BloodHound showing olivia's GenericAll over michael](./assets/administrator/02-bloodhound-genericall.png)
 
 Logging in as Michael over WinRM didn't turn up anything directly useful, but
 the same graph showed **Michael** can force a password change on `benjamin` —
@@ -82,6 +88,8 @@ a password-cracking opportunity that wouldn't otherwise exist:
 python3 targetedKerberoast.py -d administrator.htb -u emily -p '<PASSWORD>'
 hashcat ethan.txt /usr/share/wordlists/rockyou.txt
 ```
+
+![BloodHound showing ethan's GetChangesAll (DCSync) rights](./assets/administrator/04-dcsync-rights.png)
 
 Ethan's cracked password revealed the final link: BloodHound showed **Ethan**
 holds **`GetChangesAll`** (the DCSync right) on the domain. A DCSync attack

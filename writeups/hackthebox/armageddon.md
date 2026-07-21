@@ -27,6 +27,8 @@ code as root during install.
 nmap -sV -p- 10.10.10.233
 ```
 
+![nmap service scan](./assets/armageddon/01-nmap.png)
+
 SSH and Apache. Directory brute-forcing on the web root found `/profiles`,
 which exposed a Drupal version string vulnerable to **Drupalgeddon2**
 (CVE-2018-7600) — a well-known, critical unauthenticated RCE affecting
@@ -39,6 +41,8 @@ gobuster dir -u http://10.10.10.233 -w /usr/share/wordlists/dirbuster/directory-
 ---
 
 ## Foothold / Initial Access
+
+![Drupalgeddon2 (CVE-2018-7600) advisory](./assets/armageddon/02-drupalgeddon2-cve.png)
 
 A public exploit for Drupalgeddon2 was enough:
 
@@ -60,6 +64,8 @@ live — checking it is close to automatic on any compromised Drupal install:
 ```bash
 cat /var/www/html/sites/default/settings.php
 ```
+
+![Drupal settings.php leaking the MySQL password](./assets/armageddon/03-mysql-config-leak.png)
 
 That gave working MySQL credentials, which in turn exposed the Drupal
 `users` table — and a hashed password for a real system account,

@@ -27,10 +27,14 @@ for PuTTY rather than OpenSSH, needing one conversion step before it works.
 nmap -sVC -O 10.129.229.41
 ```
 
+![nmap service scan](./assets/keeper/01-nmap.png)
+
 The web app was **Request Tracker**, a support-ticketing platform. Rather
 than attack it, a quick search for its documented default credentials
 (`root` / `password`) was worth trying first — a lot of ticketing/helpdesk
-software ships with well-known defaults that administrators forget to
+software ships with well-known defaults, easy to confirm with a quick search:
+
+![searching for Request Tracker default credentials](./assets/keeper/02-default-creds-search.png) that administrators forget to
 rotate, and checking documentation before brute-forcing is always the
 cheaper move.
 
@@ -54,6 +58,8 @@ instance) and `passcodes.kdbx` (the actual password database).
 
 ## Privilege Escalation
 
+![CVE-2023-32784 detail](./assets/keeper/03-keepass-cve.png)
+
 A `.dmp` file for KeePass sitting next to a `.kdbx` database is a strong
 signal for **CVE-2023-32784** — a vulnerability where KeePass leaves
 recoverable fragments of the master password in process memory, missing only
@@ -64,6 +70,8 @@ scp lnogaard@10.129.229.41:passcodes.kdbx .
 scp lnogaard@10.129.229.41:KeePassDumpFull.dmp .
 dotnet run KeePassDumpFull.dmp
 ```
+
+![recovered KeePass master password](./assets/keeper/04-keepass-masterkey.png)
 
 This recovered the KeePass master password, unlocking the database. Inside,
 one entry's description field held a private key in **PuTTY's proprietary

@@ -29,6 +29,8 @@ Administrator.
 nmap -sC -sV -p- -T4 10.129.232.88
 ```
 
+![nmap service scan](./assets/fluffy/01-nmap.png)
+
 DNS, Kerberos, SMB, LDAP, WinRM — `fluffy.htb`, DC `DC01.fluffy.htb`. With the
 provided low-privilege credentials, the `IT` share was reachable and held an
 `Upgrade_Notice.pdf` — an internal memo listing recent vulnerabilities the IT
@@ -52,6 +54,8 @@ Built the malicious archive with a public PoC, uploaded it to the writable
 sudo responder -I tun0
 ```
 
+![building and delivering the CVE-2025-24071 exploit archive](./assets/fluffy/02-cve-2025-24071-exploit.png)
+
 Another IT user, `p.agila`, extracted the file (as the vulnerability assumes
 someone eventually will) and authenticated to my listener. The captured
 NetNTLMv2 hash cracked with `hashcat -m 5600` against a wordlist, yielding a
@@ -66,6 +70,8 @@ With a second account, I ran BloodHound to map what it could actually reach:
 ```bash
 bloodhound-python -u p.agila -p '<PASSWORD>' -ns 10.129.232.88 -d fluffy.htb -c all
 ```
+
+![BloodHound collection run](./assets/fluffy/03-bloodhound.png)
 
 The graph showed a chain: `p.agila` belongs to a group with `GenericAll` over
 a `service accounts` group, and that group holds `GenericWrite` over several
@@ -84,6 +90,8 @@ certipy-ad shadow auto -u p.agila@fluffy.htb -p '<PASSWORD>' -account ca_svc
 The `winrm_svc` hash was enough for a shell and the user flag. The `ca_svc`
 membership in Cert Publishers pointed straight at Active Directory
 Certificate Services as the real prize.
+
+![certipy find flagging ESC16](./assets/fluffy/04-esc16-vulnerable.png)
 
 `certipy find -vulnerable` against the CA identified **ESC16** — a
 misconfiguration where a security extension is globally disabled, meaning a

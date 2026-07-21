@@ -28,6 +28,8 @@ root.
 nmap -A -p- -T4 10.10.11.86
 ```
 
+![nmap service scan](./assets/soulmate/01-nmap.png)
+
 SSH, HTTP, and port 4369 — the **Erlang Port Mapper Daemon (epmd)**, an
 unusual and specific signal that some component of this box runs on the
 Erlang/BEAM VM (used by RabbitMQ, CouchDB, and similar systems). The main
@@ -40,7 +42,9 @@ ffuf -u http://10.10.11.86 -H "Host: FUZZ.soulmate.htb" -w <subdomains-wordlist>
 ```
 
 This revealed `ftp.soulmate.htb` — a subdomain invisible from the main site
-entirely, hosting a **CrushFTP** login page. The page source leaked the exact
+entirely, hosting a **CrushFTP** login page.
+
+![CrushFTP login page](./assets/soulmate/02-crushftp-login.png) The page source leaked the exact
 version: `11.W.657`.
 
 ---
@@ -67,6 +71,8 @@ gave a reverse shell as `www-data`. Since nothing obvious stood out
 immediately, I ran `linpeas.sh` to widen the search — and it flagged a script
 tied to the Erlang service spotted in the initial scan, containing hardcoded
 credentials for a system user, `ben`:
+
+![Erlang startup script with hardcoded ben credentials](./assets/soulmate/03-erlang-script-creds.png)
 
 ```bash
 ssh ben@soulmate.htb

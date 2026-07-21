@@ -26,6 +26,8 @@ Perl that GTFOBins turns directly into a shell.
 nmap -sC -sV -p- -T4 10.129.10.65
 ```
 
+![nmap service scan](./assets/shocker/01-nmap.png)
+
 An unusual SSH port (2222) and HTTP (80). Directory and extension-aware
 fuzzing against the web root found a `/cgi-bin/` directory and, inside it, a
 script named `user.sh`:
@@ -33,6 +35,8 @@ script named `user.sh`:
 ```bash
 gobuster dir -u http://10.129.10.65 -w <wordlist> -x sh,cgi,pl
 ```
+
+![gobuster finding user.sh under /cgi-bin/](./assets/shocker/02-gobuster-cgi-bin.png)
 
 A `.sh` script directly reachable via `/cgi-bin/` is close to a signature for
 **Shellshock** (CVE-2014-6271) — a bug in how older `bash` versions parse
@@ -42,6 +46,8 @@ function definitions passed through environment variables, which Apache's
 ---
 
 ## Foothold / Initial Access
+
+![Metasploit Shellshock module options](./assets/shocker/03-shellshock-exploit-options.png)
 
 A matching Metasploit module targets exactly this pattern:
 
@@ -58,6 +64,8 @@ immediately at `/home/shelly/user.txt`.
 ---
 
 ## Privilege Escalation
+
+![sudo -l showing the perl rule](./assets/shocker/04-sudo-l-perl.png)
 
 `sudo -l` showed `shelly` could run `/usr/bin/perl` with no password. Perl
 has a well-documented GTFOBins entry for exactly this scenario — a language

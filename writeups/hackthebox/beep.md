@@ -27,6 +27,8 @@ whole box.
 nmap -sC -sV -p- -T4 10.129.229.183
 ```
 
+![nmap service scan](./assets/beep/01-nmap.png)
+
 A wide service list: SSH, SMTP, HTTP, RPC, HTTPS, and a web-admin port
 (10000). The HTTPS site initially refused to load — not a network issue, but
 a modern browser's minimum TLS version rejecting the box's old TLS 1.0
@@ -35,6 +37,8 @@ configuration. Confirmed with a raw check:
 ```bash
 openssl s_client -connect 10.129.229.183:443 -tls1
 ```
+
+![Firefox flagging the site's broken/weak TLS 1.0 encryption](./assets/beep/02-tls-downgrade.png)
 
 Lowering the browser's minimum accepted TLS version (`security.tls.version.min`
 in Firefox) restored access to the site — a reminder that "the page won't
@@ -54,6 +58,8 @@ in plaintext:
 ```
 https://<TARGET_IP>/vtigercrm/graph.php?current_language=../../../../../../../..//etc/amportal.conf%00&module=Accounts&action
 ```
+
+![LFI leaking amportal.conf configuration](./assets/beep/03-lfi-config-leak.png)
 
 The leaked password worked immediately on the **Webmin** admin interface
 (port 10000) as `root` — Webmin's root login is, by design on this box, tied

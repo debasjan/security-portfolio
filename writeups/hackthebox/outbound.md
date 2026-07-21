@@ -29,12 +29,16 @@ tool.
 nmap -A -p- -T4 10.10.11.77
 ```
 
+![nmap service scan](./assets/outbound/01-nmap.png)
+
 SSH and HTTP only. The web app was **Roundcube webmail**, and logging in with
 provided starting credentials (`tyler`) confirmed the version: **1.6.10**.
 
 ---
 
 ## Foothold / Initial Access
+
+![CVE-2025-49113 Metasploit module](./assets/outbound/02-roundcube-cve.png)
 
 That version is vulnerable to **CVE-2025-49113**, a critical unauthenticated
 RCE in Roundcube. A matching Metasploit module made exploitation
@@ -50,7 +54,9 @@ run
 ```
 
 This landed a shell as `www-data` — not yet the user flag, but a foothold
-into the application's own files. Roundcube's `config.inc.php` held both a
+into the application's own files. ![Roundcube config.inc.php leaking the DB password and des_key](./assets/outbound/03-roundcube-config.png)
+
+Roundcube's `config.inc.php` held both a
 MySQL credential and a `des_key` value — the encryption key Roundcube itself
 uses to protect stored IMAP session credentials with Triple-DES.
 

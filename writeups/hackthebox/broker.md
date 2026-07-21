@@ -27,6 +27,8 @@ serve the root flag over a locally-bound port and read it back with `curl`.
 nmap -sVC -O 10.129.230.87
 ```
 
+![nmap service scan](./assets/broker/01-nmap.png)
+
 SSH, HTTP, and port 61616 — ActiveMQ's default OpenWire protocol port,
 running version **5.15.15**. That version is squarely inside the affected
 range for **CVE-2023-46604**, a critical unauthenticated RCE in ActiveMQ's
@@ -35,6 +37,8 @@ OpenWire protocol handling.
 ---
 
 ## Foothold / Initial Access
+
+![CVE-2023-46604 advisory](./assets/broker/02-cve-2023-46604.png)
 
 A public exploit for CVE-2023-46604 generates a malicious XML payload and
 serves it to the vulnerable OpenWire listener, which deserializes and
@@ -62,6 +66,8 @@ powerful enough to expose root-owned content when nginx itself runs as root:
 ```
 sudo /usr/sbin/nginx -c <malicious.conf>
 ```
+
+![GTFOBins nginx entry](./assets/broker/03-gtfobins-nginx.png)
 
 Following the same pattern documented on GTFOBins for `nginx`, a crafted
 config made nginx bind to a local port and serve arbitrary files from disk —

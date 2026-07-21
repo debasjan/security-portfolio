@@ -26,6 +26,8 @@ an SSH password. Root comes from a very recent `sudo` chroot vulnerability.
 nmap -A -T4 10.10.11.87
 ```
 
+![nmap service scan](./assets/expressway/01-nmap.png)
+
 A default TCP scan showed almost nothing beyond SSH — a strong hint that the
 real attack surface wasn't TCP at all. A UDP sweep confirmed that:
 
@@ -52,6 +54,8 @@ the pre-shared key:
 ike-scan --id=1 -A 10.10.11.87
 ike-scan --id=1 -A -P psk.txt 10.10.11.87
 ```
+
+![ike-scan aggressive mode handshake](./assets/expressway/02-ike-scan-aggressive.png)
 
 The response confirmed Aggressive Mode support, an older cipher suite
 (3DES/SHA1/DH group 2), and an identity of `ike@expressway.htb` — a username
@@ -80,6 +84,8 @@ under `/tmp`) containing a fake `/etc/nsswitch.conf` and a malicious
 `libnss_*.so` gets loaded as root once `sudo` chroots into it — turning any
 `sudo` invocation, regardless of the actual command allowed, into arbitrary
 code execution.
+
+![sudo --version confirming the vulnerable release](./assets/expressway/03-sudo-version.png)
 
 A public PoC for CVE-2025-32463 automated building that fake chroot structure
 and triggering the load. Running it delivered a root shell and the root flag.

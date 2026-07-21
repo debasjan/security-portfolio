@@ -27,6 +27,8 @@ nmap -Pn -sC -sV 10.10.10.4
 nmap -Pn -p 445 -sC -sV 10.10.10.4
 ```
 
+![nmap service scan](./assets/legacy/01-nmap.png)
+
 SMB (445) was the only service of interest, and version fingerprinting
 against it flagged the target as vulnerable to **MS08-067** — one of the
 oldest widely-exploited Windows RCE vulnerabilities, sitting in the SMB path
@@ -35,6 +37,8 @@ canonicalization logic.
 ---
 
 ## Foothold / Initial Access
+
+![Metasploit search results for ms08](./assets/legacy/02-msf-search-ms08.png)
 
 ```
 search ms08

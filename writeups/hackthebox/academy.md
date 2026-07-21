@@ -27,6 +27,8 @@ world-writable and runnable — replacing its contents is enough.
 nmap -A -sV -sC -O <TARGET_IP>
 ```
 
+![nmap service scan](./assets/academy/01-nmap.png)
+
 FTP (21, anonymous login allowed), SSH (22), HTTP (80). Anonymous FTP is
 always worth checking first — it costs nothing and regularly holds exactly
 this kind of leftover file:
@@ -36,6 +38,8 @@ ftp <TARGET_IP>
 # anonymous / anonymous
 get note.txt
 ```
+
+![anonymous FTP login pulling note.txt](./assets/academy/02-ftp-anonymous-note.png)
 
 `note.txt` contained a student registration number and a password hash.
 Directory fuzzing on the web app in parallel confirmed an `/academy` login
@@ -55,6 +59,8 @@ That gave a working login to the student portal. The portal let a student
 update their own record, including uploading a profile picture — a feature
 that only enforced a `.jpg`-style check client-side. Uploading a PHP reverse
 shell instead of an image executed on upload, landing a `www-data` shell.
+
+![uploading a PHP payload through the profile picture field](./assets/academy/03-upload-shell.png)
 
 ```bash
 nc -nvlp 1234
@@ -86,6 +92,8 @@ running **pspy** (to watch scheduled activity without needing root) revealed
 the script was being executed periodically as a higher-privileged user
 regardless. Since I could write the script myself, replacing its contents
 with a reverse shell one-liner and waiting for the next execution window
+![pspy confirming backup.sh runs on a schedule](./assets/academy/04-cron-backup.png)
+
 delivered a shell in the target account's context. Root flag retrieved.
 
 ---

@@ -27,6 +27,8 @@ and hands over Domain Admin.
 nmap -Pn -sV -sC 10.10.10.100
 ```
 
+![nmap service scan](./assets/active/01-nmap.png)
+
 LDAP (389) and SMB (445) — an Active Directory box. SMB allowed an anonymous
 connection, and enumerating shares turned up a `Replication` share with
 read-only anonymous access. A `Replication` share is a strong signal on its
@@ -47,6 +49,8 @@ just as good as plaintext:
 ```bash
 gpp-decrypt <cpassword-blob>
 ```
+
+![GPP cpassword found in Groups.xml](./assets/active/02-gpp-cpassword.png)
 
 This recovered credentials for `SVC_TGS`. Rechecking shares with that account
 opened up a `Users` share containing the user flag.
@@ -70,6 +74,8 @@ Kerberoastable — and returned a TGS hash for offline cracking:
 ```bash
 hashcat -m 13100 hash.txt /usr/share/wordlists/rockyou.txt
 ```
+
+![AS-REP check then Kerberoasting the Administrator SPN](./assets/active/03-kerberoasting.png)
 
 The password fell to the wordlist, giving Administrator credentials directly.
 From there, SMB access to `C$` and an Impacket `psexec` session confirmed full

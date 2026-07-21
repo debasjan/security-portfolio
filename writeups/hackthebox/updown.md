@@ -30,6 +30,8 @@ the job.
 nmap -sC -sV -p- 10.129.227.227
 ```
 
+![nmap service scan](./assets/updown/01-nmap.png)
+
 SSH and HTTP. The web app checked whether a given site was "up," and named a
 domain in its footer — added to `/etc/hosts`. Virtual-host fuzzing found a
 second subdomain:
@@ -46,6 +48,8 @@ an exposed **`.git`** directory:
 gobuster dir -u http://siteisup.htb/dev -w <wordlist>
 ```
 
+![git-dumper pulling the exposed .git repository](./assets/updown/02-git-dumper.png)
+
 A reachable `.git` folder means the entire repository history can be pulled
 down with a tool like `git-dumper` — effectively the full source code,
 including anything a developer ever committed and later "removed."
@@ -55,7 +59,9 @@ including anything a developer ever committed and later "removed."
 ## Foothold / Initial Access
 
 Dumping the repository and reading `.htaccess` revealed the actual gate on
-the dev subdomain: a required custom header, `Special-Dev: only4dev`. Adding
+the dev subdomain: a required custom header, `Special-Dev: only4dev`. ![Burp match-and-replace rule adding the Special-Dev header](./assets/updown/03-burp-special-dev-header.png)
+
+Adding
 that header to every request unlocked the subdomain entirely — the `403` had
 never been a real access control, just a header check.
 
@@ -77,7 +83,11 @@ obvious reverse-shell functions. Rather than trying each disabled function by
 hand, **dfunc-bypasser** automated checking which "dangerous" functions were
 still actually enabled — flagging `proc_open` as available, a less commonly
 disabled function that works the same way `popen` does for spawning
-processes. Wrapping a reverse-shell payload with `proc_open`, packaging it the
+processes.
+
+![dfunc-bypasser flagging proc_open as enabled](./assets/updown/04-dfunc-bypasser-proc-open.png)
+
+Wrapping a reverse-shell payload with `proc_open`, packaging it the
 same `.phar`-as-`.jpeg` way, and triggering it through the wrapper gave a
 shell as `www-data`.
 

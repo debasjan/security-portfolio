@@ -26,11 +26,15 @@ Windows service into `NT AUTHORITY\SYSTEM` on the domain controller.
 nmap -sC -sV 10.129.96.155
 ```
 
+![nmap service scan](./assets/resolute/01-nmap.png)
+
 LDAP (`megabank.local`) and RPC. Anonymous RPC bind pulled a username list:
 
 ```bash
 rpcclient -U "" 10.129.96.155 -N
 ```
+
+![anonymous RPC bind enumerating usernames](./assets/resolute/02-rpc-user-enum.png)
 
 LDAP, still anonymous, was worth searching for anything stashed in an
 attribute field — a habit that keeps paying off across this whole machine set:
@@ -71,7 +75,11 @@ portfolio: transcript/history files are one of the highest-value places to
 look on any Windows foothold, because they capture exactly the kind of
 mistake a rushed admin makes once and then forgets about.
 
-The leaked credentials belonged to `ryan`, a member of **DnsAdmins**. This
+![PowerShell transcript leaking a credential on the command line](./assets/resolute/03-ps-transcript-leak.png)
+
+The leaked credentials belonged to `ryan`, a member of **DnsAdmins**.
+
+![ryan's membership in the DnsAdmins group](./assets/resolute/04-dnsadmins-group.png) This
 group can specify a plugin DLL for the DNS Server service to load — a
 legitimate extensibility feature that, combined with write access to the
 registry key controlling it, becomes a privileged code-execution primitive:

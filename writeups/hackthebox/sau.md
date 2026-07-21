@@ -28,6 +28,8 @@ flaw in `systemctl` itself.
 nmap -sVC -O 10.129.229.26
 ```
 
+![nmap service scan](./assets/sau/01-nmap.png)
+
 SSH, HTTP (80), and an unusual high port, 55555 — hosting **Request
 Baskets**, a tool for creating disposable HTTP endpoints that forward
 requests elsewhere (commonly used for webhook testing/debugging).
@@ -35,6 +37,8 @@ requests elsewhere (commonly used for webhook testing/debugging).
 ---
 
 ## Foothold / Initial Access
+
+![CVE-2023-27163 detail](./assets/sau/02-request-baskets-cve.png)
 
 Request Baskets at this version is vulnerable to **CVE-2023-27163**, a
 Server-Side Request Forgery: a basket's "forward URL" isn't restricted to
@@ -72,6 +76,8 @@ Shell landed as `puma`. User flag retrieved.
 ```
 /usr/bin/systemctl status trail.service
 ```
+
+![sudo -l showing the systemctl status rule](./assets/sau/03-sudo-systemctl.png)
 
 `systemctl status` output is piped through a pager (`less` by default) when
 the output is long enough — and `less` supports an escape to spawn a shell

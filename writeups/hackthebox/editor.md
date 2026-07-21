@@ -25,6 +25,8 @@ credentials found in an application's own configuration file, reused over SSH.
 sudo nmap -A -Pn -p- -T4 10.10.11.80
 ```
 
+![nmap service scan](./assets/editor/01-nmap.png)
+
 SSH and two HTTP ports (80, 8080). Port 80 was a static site with nothing of
 interest. Port 8080 hosted **XWiki**, with WebDAV enabled and several
 disallowed paths listed in `robots.txt` — worth checking, since a
@@ -35,6 +37,8 @@ checking manually. The version banner read **XWiki 15.10.8**.
 ---
 
 ## Foothold / Initial Access
+
+![CVE-2025-24893 exploit on Exploit-DB](./assets/editor/02-xwiki-cve-exploit-db.png)
 
 That version is affected by **CVE-2025-24893**, an unauthenticated remote
 code execution vulnerability in XWiki. A public exploit for the CVE landed a
@@ -69,6 +73,8 @@ turned up a Netdata component:
 ```
 /opt/netdata/usr/libexec/netdata/plugins.d/ndsudo
 ```
+
+![CVE-2024-32019 PoC repository](./assets/editor/03-ndsudo-cve-poc.png)
 
 This binary is affected by **CVE-2024-32019**, a vulnerability in how the
 `ndsudo` helper resolves the tools it shells out to — it can be tricked into

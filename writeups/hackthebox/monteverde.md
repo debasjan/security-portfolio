@@ -27,12 +27,16 @@ account happens to be the domain administrator.
 nmap -sC -sV -p- -T4 10.129.228.111
 ```
 
+![nmap service scan](./assets/monteverde/01-nmap.png)
+
 DNS, Kerberos, RPC, LDAP (`MEGABANK.LOCAL`), SMB, WinRM. LDAP allowed an
 anonymous bind:
 
 ```bash
 ldapsearch -x -b "dc=megabank,dc=local" "*" -H ldap://10.129.228.111 | grep userPrincipalName
 ```
+
+![anonymous LDAP bind leaking usernames](./assets/monteverde/02-ldap-usernames.png)
 
 This is close to free reconnaissance — anonymous LDAP binds routinely leak a
 full username list before a single credential is guessed.
@@ -81,6 +85,8 @@ plaintext credentials — which were, in fact, the domain Administrator's:
 # script queries ADSync DB config tables, then uses Azure AD Connect's own
 # crypto library to decrypt the stored sync-account credential
 ```
+
+![decrypted Azure AD Connect sync account credentials](./assets/monteverde/03-azuread-connect-creds.png)
 
 Those credentials gave a WinRM session as Administrator and the root flag.
 
