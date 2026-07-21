@@ -36,6 +36,7 @@ from machines I've solved.
 Structured playbooks built from my own notes across dozens of machines:
 
 - [Initial Enumeration & Foothold](./methodology/enumeration.md)
+- [Web Application Attacks](./methodology/web-application-attacks.md)
 - [Linux Privilege Escalation](./methodology/linux-privesc.md)
 - [Windows Privilege Escalation](./methodology/windows-privesc.md)
 - [Active Directory](./methodology/active-directory.md)
