@@ -16,7 +16,7 @@ that practice — methodology I've written from my own notes, and write-ups
 from machines I've solved.
 
 - 🎯 **Goal:** junior penetration tester / red team
-- 📜 **Certifications:** OSCP (in progress)
+- 📜 **Certifications:** OSCP (in progress) · [eJPT](https://certs.ine.com/e5da4c9b-82af-4036-87af-0da6644de771)
 - 🛠️ **Focus areas:** Active Directory · Linux/Windows privilege escalation · enumeration · pivoting
 
 ---
@@ -28,6 +28,7 @@ from machines I've solved.
 | Hack The Box | [debas](https://profile.hackthebox.com/profile/019d1cb4-4b60-7102-8db2-fa81f7ab5df5) | 35/545 machines · Level 47 · Rank: Professional |
 | TryHackMe | [ZXCZX](https://tryhackme.com/p/zxczx) | 257 rooms completed · Top 1% |
 | Proving Grounds | [OffSec profile](https://portal.offsec.com/public-profile/e83a8c72-0f1e-4140-a077-0ecd02de5374) | 21/283 machines completed |
+| HTB Pro Labs | Dante (Cert. HTBCERT-EB6BAAD3CB) | ✅ Completed — 22 Feb 2026 |
 
 ---
 
