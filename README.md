@@ -52,14 +52,6 @@ Retired / permitted machines only, per each platform's policy.
 
 ---
 
-## 🧰 Tools
-
-Custom scripts automating repetitive parts of my workflow:
-
-➡️ **[Tools](./tools/README.md)**
-
----
-
 ## 📝 Cheat sheets
 
 Quick references I use myself:
