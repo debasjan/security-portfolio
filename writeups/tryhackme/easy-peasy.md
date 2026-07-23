@@ -36,6 +36,8 @@ nginx-served site was the natural next step given no other obvious surface:
 gobuster dir -u http://<TARGET_IP> -w <wordlist>
 ```
 
+![nmap service scan](./assets/easy-peasy/01-nmap.png)
+
 ---
 
 ## Foothold / Initial Access
@@ -44,6 +46,8 @@ Brute-forcing turned up a hidden path whose page source contained an
 encoded value. Decoding it (through CyberChef or equivalent) revealed a
 **base62**-encoded string pointing to a further hidden directory — each
 layer's output became the input/location for the next.
+
+![gobuster finding the hidden directory](./assets/easy-peasy/02-gobuster-hidden-dir.png)
 
 Following that chain led to a hash, cracked offline against a
 room-provided wordlist, and eventually to an **image file containing a

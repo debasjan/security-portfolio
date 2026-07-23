@@ -25,8 +25,12 @@ documented shell-escape trick.
 nmap -sC -sV <TARGET_IP>
 ```
 
+![nmap service scan](./assets/brooklyn-nine-nine/01-nmap.png)
+
 FTP and SSH were the two relevant services. FTP allowed anonymous access
 and held a file readable by anyone connecting.
+
+![FTP pulling the credential file](./assets/brooklyn-nine-nine/02-ftp-credential-file.png)
 
 ---
 
@@ -59,6 +63,8 @@ with elevated rights:
 sudo less /path/to/some/file
 !/bin/sh
 ```
+
+![GTFOBins less shell-escape entry](./assets/brooklyn-nine-nine/03-gtfobins-less.png)
 
 Root shell obtained. Root flag retrieved.
 

@@ -28,8 +28,12 @@ nmap -sC -sV <TARGET_IP>
 gobuster dir -u http://<TARGET_IP> -w <wordlist>
 ```
 
+![nmap service scan](./assets/lazyadmin/01-nmap.png)
+
 Brute-forcing surfaced a nested path eventually leading to an installation
 of **SweetRice CMS**, identifiable by version through its own files/pages.
+
+![the SweetRice CMS install](./assets/lazyadmin/02-sweetrice-cms.png)
 
 ---
 
@@ -67,6 +71,8 @@ reverse-shell command (or simply appending one) and then invoking it through
 ```bash
 sudo /usr/bin/perl /path/to/backup.pl
 ```
+
+![sudo -l showing the writable backup.pl rule](./assets/lazyadmin/03-sudo-l-perl-backup.png)
 
 Root shell obtained. Root flag retrieved.
 

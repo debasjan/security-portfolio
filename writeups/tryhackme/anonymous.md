@@ -34,6 +34,8 @@ is present with no other clear entry point:
 enum4linux -a <TARGET_IP>
 ```
 
+![nmap service scan](./assets/anonymous/01-nmap.png)
+
 SMB enumeration confirmed a share holding user files (a `pics` share), while
 FTP allowed anonymous login and contained a script (`clean.sh`) alongside a
 compiled helper — the box's actual foothold vector.
@@ -56,6 +58,8 @@ get clean.sh
 put clean.sh
 ```
 
+![FTP session pulling and modifying clean.sh](./assets/anonymous/02-ftp-writable-script.png)
+
 ```bash
 nc -lvnp <PORT>
 ```
@@ -74,6 +78,8 @@ that command with the file owner's privileges:
 ```bash
 find / -perm -4000 2>/dev/null
 ```
+
+![SUID sweep finding /usr/bin/env](./assets/anonymous/03-suid-env.png)
 
 GTFOBins documents the abuse directly: `env` with SUID launches whatever
 command follows it *with the elevated privilege the binary itself carries*

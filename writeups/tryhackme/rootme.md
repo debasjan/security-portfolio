@@ -32,7 +32,11 @@ brute-forcing on the web root was the immediate next step:
 gobuster dir -u http://<TARGET_IP> -w <wordlist>
 ```
 
+![nmap service scan](./assets/rootme/01-nmap.png)
+
 This found a hidden `/panel/` directory.
+
+![gobuster finding /panel/](./assets/rootme/02-gobuster-panel.png)
 
 ---
 

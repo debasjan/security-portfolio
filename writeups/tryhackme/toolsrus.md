@@ -27,6 +27,8 @@ nmap -sC -sV -p- <TARGET_IP>
 gobuster dir -u http://<TARGET_IP> -w <wordlist>
 ```
 
+![nmap service scan](./assets/toolsrus/01-nmap.png)
+
 Brute-forcing the default web root found a directory revealing a name
 (hinting at a valid username), and a separate path protected by HTTP basic
 authentication. A second web service was found running on a non-standard
@@ -45,7 +47,11 @@ hydra -l <user> -P /usr/share/wordlists/rockyou.txt -f <TARGET_IP> http-get /pro
 
 The recovered password, combined with Tomcat's well-known default manager
 path, was used with **Nikto** to scan `/manager/html` and confirm valid
-Tomcat manager access. With valid manager credentials and the exact
+Tomcat manager access.
+
+![Nikto confirming authenticated Tomcat manager access](./assets/toolsrus/02-nikto-tomcat-auth.png)
+
+With valid manager credentials and the exact
 Tomcat/Coyote version identified, Metasploit's Tomcat manager exploitation
 module deployed a malicious WAR through the manager interface and executed
 it directly:

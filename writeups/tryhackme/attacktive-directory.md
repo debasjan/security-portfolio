@@ -28,6 +28,8 @@ via pass-the-hash.
 nmap -sC -sV <TARGET_IP>
 ```
 
+![nmap service scan](./assets/attacktive-directory/01-nmap.png)
+
 Standard AD services (Kerberos, LDAP, SMB) confirmed a domain controller.
 SMB/RPC enumeration (`enum4linux`) returned the NetBIOS domain name.
 
@@ -43,6 +45,8 @@ checked, so no domain account is needed to run this enumeration:
 ```bash
 kerbrute userenum -d <domain> --dc <TARGET_IP> <userlist>
 ```
+
+![Kerbrute enumerating valid usernames](./assets/attacktive-directory/02-kerbrute-userenum.png)
 
 Two accounts stood out immediately by naming convention (service-style
 accounts). One of them had **"Does not require Pre-Authentication"** set —

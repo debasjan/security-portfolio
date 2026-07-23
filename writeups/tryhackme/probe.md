@@ -32,6 +32,8 @@ A notably large number of open ports for an "easy" box — several distinct
 HTTP services on non-standard ports, FTP on a non-default port, and a
 self-signed HTTPS site.
 
+![nmap service scan](./assets/probe/01-nmap.png)
+
 **Web fingerprinting, port by port:**
 
 - The standard HTTP port ran `lighttpd`, identified from its response
@@ -40,6 +42,8 @@ self-signed HTTPS site.
   with the exact CMS version and admin username both readable from
   standard WordPress fingerprinting (REST API/meta generator tag and
   author archive enumeration).
+
+  ![the WordPress site found on a non-standard port](./assets/probe/02-wordpress-site.png)
 - Another port exposed **phpMyAdmin**, identified by its default login
   page.
 - The self-signed HTTPS site's **certificate metadata** (subject/contact

@@ -28,9 +28,13 @@ golden-ticket generation.
 nmap -sC -sV <TARGET_IP>
 ```
 
+![nmap service scan](./assets/ice/01-nmap.png)
+
 RDP and an unusual service on port 8000 identified as **Icecast**. Looking
 up Icecast vulnerabilities for the disclosed version turned up a known,
 scored CVE with public exploitation history.
+
+![CVE-2004-1561 detail](./assets/ice/02-cve-icecast.png)
 
 ---
 

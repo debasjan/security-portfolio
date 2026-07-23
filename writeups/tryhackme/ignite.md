@@ -27,8 +27,12 @@ nmap -sC -sV <TARGET_IP>
 gobuster dir -u http://<TARGET_IP> -w <wordlist>
 ```
 
+![nmap service scan](./assets/ignite/01-nmap.png)
+
 The web application identified itself as **Fuel CMS** through its
 dashboard, with the version visible directly on the page.
+
+![searchsploit results for Fuel CMS](./assets/ignite/02-searchsploit-fuelcms.png)
 
 ---
 
