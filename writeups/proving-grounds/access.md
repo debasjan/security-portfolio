@@ -27,6 +27,8 @@ ticket hands over the next account directly.
 sudo nmap -p- -sCV <TARGET_IP>
 ```
 
+![nmap service scan](./assets/access/01-nmap.png)
+
 A web application accepting file uploads was the standout service.
 
 ---
@@ -40,6 +42,8 @@ extension to the PHP handler —
 ```
 AddType application/x-httpd-php .dork
 ```
+
+![uploading the .htaccess that remaps a new extension to PHP](./assets/access/02-htaccess-bypass.png)
 
 — means any file with that new extension executes as PHP regardless of what
 the upload filter blocked. Renaming a standard PHP web shell (Ivan Sincek's)
@@ -69,6 +73,8 @@ Rubeus.exe kerberoast /user:svc_mssql /outfile:hash.txt
 ```bash
 hashcat -m 13100 hash.txt /usr/share/wordlists/rockyou.txt
 ```
+
+![Kerberoast hash captured with Rubeus](./assets/access/03-kerberoast-hash.png)
 
 The hash cracked against `rockyou.txt`, handing over valid credentials for
 `svc_mssql`.

@@ -25,8 +25,12 @@ no privilege escalation phase needed.
 sudo nmap -p- -sCV <TARGET_IP>
 ```
 
+![nmap service scan](./assets/twiggy/01-nmap.png)
+
 SaltStack's master ports were identified as open and running a version
 affected by a public pre-auth RCE.
+
+![the SaltStack CVE exploit on Exploit-DB](./assets/twiggy/02-saltstack-cve.png)
 
 ---
 
@@ -45,6 +49,8 @@ source .venv/bin/activate
 python -m pip install salt
 python exploit.py --master <TARGET_IP>
 ```
+
+![running the exploit to a root shell](./assets/twiggy/03-exploit-run.png)
 
 Root shell obtained directly; no separate privilege escalation stage was
 needed. Root flag retrieved.

@@ -29,6 +29,8 @@ once inside.
 sudo nmap -sCV -p- <TARGET_IP>
 ```
 
+![nmap service scan](./assets/nickel/01-nmap.png)
+
 Key ports: FTP (anonymous disabled), SSH, RDP, an HTTP "DevOps Dashboard"
 on 8089, and a second HTTP service on 33333 acting as its backing API. The
 dashboard's page source referenced the API by a link-local/APIPA address —
@@ -56,6 +58,8 @@ base64-encoded password:
 ```
 DevTasks.exe --deploy C:\work\dev.yaml --user ariah -p "<base64>" --server nickel-dev --protocol ssh
 ```
+
+![DevOps API leaking the deployment command line](./assets/nickel/02-devops-api-leak.png)
 
 Decoding the password and connecting over SSH with the recovered
 credentials succeeded. User flag retrieved.
@@ -88,6 +92,8 @@ confirmed blind command execution as SYSTEM:
 ```
 curl.exe "http://127.0.0.1/?whoami"
 ```
+
+![the loopback-only endpoint executing as SYSTEM](./assets/nickel/03-localhost-system-endpoint.png)
 
 Uploading `nc.exe` and triggering it through the same endpoint (with every
 space URL-encoded as `%20`) returned a reverse shell running as

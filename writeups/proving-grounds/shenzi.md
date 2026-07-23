@@ -28,6 +28,8 @@ execution directly. Privilege escalation is a textbook
 nmap -sCV <TARGET_IP>
 ```
 
+![nmap service scan](./assets/shenzi/01-nmap.png)
+
 FTP (anonymous login failing), an XAMPP default page over HTTP/HTTPS, SMB,
 and MariaDB. An initial directory brute-force against the web root's
 default page found nothing — a conclusion worth revisiting later.
@@ -44,7 +46,9 @@ smbmap -H <TARGET_IP> -u null -p null -r <SHARE_NAME>
 ```
 
 The share held `passwords.txt`, which contained WordPress admin credentials
-directly. This raised a contradiction worth noticing: the earlier web
+directly.
+
+![smbmap listing the share contents](./assets/shenzi/02-smb-cleartext-cred.png) This raised a contradiction worth noticing: the earlier web
 brute-force had turned up nothing, yet here was a working WordPress login —
 meaning the earlier enumeration was incomplete, not that WordPress didn't
 exist. The share's own name turned out to double as the web path
@@ -76,6 +80,8 @@ required for the abuse to work) — confirmed manually:
 reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
 reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
 ```
+
+![winPEAS flagging AlwaysInstallElevated in both hives](./assets/shenzi/03-alwaysinstallelevated.png)
 
 With both set to `1`, any MSI installs with SYSTEM privileges regardless of
 the installing user's own rights. Building a malicious MSI and running it

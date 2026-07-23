@@ -28,6 +28,8 @@ user's home directory hands over root with one more SSH login.
 sudo nmap -sCV -p- <TARGET_IP>
 ```
 
+![nmap service scan](./assets/boolean/01-nmap.png)
+
 An interesting non-standard port stood out alongside the web login page on
 port 80.
 
@@ -39,7 +41,9 @@ Registering a test account on the web app returned "must be confirmed" —
 account creation succeeds, but the account isn't usable until confirmed
 (normally via an emailed link). Intercepting the registration request in
 Burp showed the confirmation state was just a request parameter, sent as
-`false`. Appending `&user[confirmed]=True` to the same request flipped the
+`false`. ![Burp Suite showing the confirmed parameter](./assets/boolean/02-burp-confirmed-param.png)
+
+Appending `&user[confirmed]=True` to the same request flipped the
 account to confirmed without any email step at all — the check was never
 enforced server-side.
 
@@ -88,6 +92,8 @@ Forcing the client to offer only the specified key fixed it:
 ```bash
 ssh -i root_key -o IdentitiesOnly=yes root@<TARGET_IP>
 ```
+
+![fixing the "too many authentication failures" error with IdentitiesOnly](./assets/boolean/03-ssh-identitiesonly.png)
 
 Root shell obtained, root flag retrieved.
 

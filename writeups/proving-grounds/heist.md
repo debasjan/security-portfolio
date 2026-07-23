@@ -29,6 +29,8 @@ and triggering it through the RDP login screen for a SYSTEM shell.
 sudo nmap -sCV -p- <TARGET_IP>
 ```
 
+![nmap service scan](./assets/heist/01-nmap.png)
+
 A web application on port 8080 stood out as the entry point to probe.
 
 ---
@@ -50,7 +52,9 @@ worked directly for a WinRM login (`evil-winrm`). User flag retrieved.
 
 With a foothold on a domain-joined box, the next step was collecting AD
 relationship data with BloodHound (`bloodhound-python`), then reviewing the
-compromised user's outbound object control in the resulting graph. The user
+compromised user's outbound object control in the resulting graph.
+
+![BloodHound collection run](./assets/heist/02-bloodhound.png) The user
 was a member of a **"web admins"** group, which in turn had permission to
 read the **GMSA (Group Managed Service Account) password** for a service
 account — GMSA passwords are normally rotated and inaccessible, but any
@@ -80,6 +84,8 @@ cd C:\windows\system32
 ren utilman.exe utilman.old
 ren cmd.exe utilman.exe
 ```
+
+![swapping utilman.exe for cmd.exe](./assets/heist/03-utilman-swap.png)
 
 Connecting over RDP and triggering the accessibility shortcut at the login
 screen (before any authentication) launched the renamed binary — a

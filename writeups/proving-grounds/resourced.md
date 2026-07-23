@@ -30,6 +30,8 @@ Kerberos to land on the DC directly.
 sudo nmap -sCV -p- <TARGET_IP>
 ```
 
+![nmap service scan](./assets/resourced/01-nmap.png)
+
 Standard AD port set (LDAP, Kerberos, SMB). Broad enumeration with
 `enum4linux-ng` recovered domain usernames and what looked like a valid
 password alongside them.
@@ -50,6 +52,8 @@ legitimate password-audit exercise and never cleaned up.
 smbclient "//<TARGET_IP>/Password Audit" -U '<DOMAIN>/<USER>%<PASSWORD>'
 ```
 
+![netexec confirming the credential and listing shares](./assets/resourced/02-smb-shares-auth.png)
+
 Running `impacket-secretsdump` against the `ntds.dit` + `SYSTEM` hive pair
 extracted **every NTLM hash in the domain** offline:
 
@@ -64,6 +68,8 @@ account that authenticated successfully (`Pwn3d!`), giving a shell via
 ---
 
 ## Privilege Escalation
+
+![uploading the SharpHound collection to BloodHound](./assets/resourced/03-bloodhound-upload.png)
 
 Collecting AD data with SharpHound and loading it into BloodHound showed
 the compromised user held **`GenericAll`** directly over the domain

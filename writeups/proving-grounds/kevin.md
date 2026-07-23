@@ -25,7 +25,13 @@ privilege escalation phase required at all.
 sudo nmap -p- -sCV <TARGET_IP>
 ```
 
-Port 80 served an **HP Power Manager** web login. Logging in with
+![nmap service scan](./assets/kevin/01-nmap.png)
+
+Port 80 served an **HP Power Manager** web login.
+
+![logging into HP Power Manager with admin:admin](./assets/kevin/02-hp-power-manager-login.png)
+
+Logging in with
 `admin:admin` succeeded immediately, and the post-login page disclosed the
 exact version: 4.2.
 
@@ -35,6 +41,8 @@ exact version: 4.2.
 
 HP Power Manager 4.2 is vulnerable to **CVE-2009-3999**, with a public
 Metasploit module (`exploit/windows/http/hp_power_manager_filename`).
+![running the hp_power_manager_filename Metasploit module](./assets/kevin/03-msf-exploit.png)
+
 Setting `RHOSTS`/`LHOST` and running the module returned a session directly
 as `NT AUTHORITY\SYSTEM`. Root flag retrieved on first exploitation.
 

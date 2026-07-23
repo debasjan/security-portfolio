@@ -26,6 +26,8 @@ for a direct `NT AUTHORITY\SYSTEM` shell.
 sudo nmap -p- -sCV <TARGET_IP>
 ```
 
+![nmap service scan](./assets/algernon/01-nmap.png)
+
 Port 9998 served a SmarterMail login page. Viewing the page source
 disclosed the exact build number, which turned out to be older than the
 build the exploit targets (older builds inherit the same unpatched flaw).
@@ -33,6 +35,8 @@ build the exploit targets (older builds inherit the same unpatched flaw).
 ---
 
 ## Foothold / Initial Access
+
+![searching for the SmarterMail build's public exploit](./assets/algernon/02-exploit-search.png)
 
 Searching for the disclosed build number surfaced a public remote code
 execution exploit for SmarterMail (pre-authentication, no login required):
@@ -50,6 +54,8 @@ script, running it delivered command execution directly as
 python3 49216.py
 nc -lvnp 4444
 ```
+
+![running the SmarterMail exploit to a SYSTEM shell](./assets/algernon/03-exploit-run.png)
 
 ---
 

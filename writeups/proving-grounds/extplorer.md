@@ -28,6 +28,8 @@ off the filesystem image, bypassing normal file permissions entirely.
 sudo nmap -sCV -p- <TARGET_IP>
 ```
 
+![nmap service scan](./assets/extplorer/01-nmap.png)
+
 Port 80 served a WordPress site. Directory brute-forcing found a
 `filemanager` path:
 
@@ -59,7 +61,9 @@ Browsing to the planted shell caught a connection as `www-data`.
 ## Privilege Escalation
 
 eXtplorer's own configuration file, `filemanager/config/.htusers.php`,
-contained a password hash for a local user (`dora`). Cracking it with John
+contained a password hash for a local user (`dora`).
+
+![eXtplorer's config file leaking the password hash](./assets/extplorer/02-htusers-hash.png) Cracking it with John
 against `rockyou.txt` recovered the plaintext, and `su dora` with that
 password succeeded — user flag retrieved.
 
@@ -76,6 +80,8 @@ needed beyond `disk` group membership:
 fdisk -l
 debugfs /dev/sdXN
 ```
+
+![debugfs reading /etc/shadow off the raw device](./assets/extplorer/03-debugfs-shadow.png)
 
 Cracking the extracted root hash offline recovered the root password
 directly.

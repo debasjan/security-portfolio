@@ -26,6 +26,8 @@ all.
 sudo nmap -p- -sCV <TARGET_IP>
 ```
 
+![nmap service scan](./assets/internal/01-nmap.png)
+
 SMB fingerprinted as a version of Windows Server 2008 R2. Running a
 targeted vulnerability scan against the SMB port confirmed a match against
 **CVE-2009-3103**, an older SMB2 remote code execution flaw:
@@ -34,6 +36,8 @@ targeted vulnerability scan against the SMB port confirmed a match against
 sudo nmap -p 445 -sCV --script vuln <TARGET_IP>
 ```
 
+![nmap vuln script confirming CVE-2009-3103](./assets/internal/02-smb-vuln-scan.png)
+
 ---
 
 ## Foothold / Initial Access
@@ -41,7 +45,9 @@ sudo nmap -p 445 -sCV --script vuln <TARGET_IP>
 Metasploit ships a module for this exact CVE
 (`exploit/windows/smb/ms09_050_smb2_negotiate_func_index`). Setting `RHOSTS`
 and `LHOST` and running the exploit landed a session directly as
-`NT AUTHORITY\SYSTEM` — no intermediate low-privilege shell at all. Root
+`NT AUTHORITY\SYSTEM`
+
+![running the ms09_050 exploit module](./assets/internal/03-ms09-050-exploit.png) — no intermediate low-privilege shell at all. Root
 flag retrieved on first exploitation.
 
 ---

