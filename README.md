@@ -3,8 +3,8 @@
 > Aspiring Penetration Tester · OSCP in progress · Offensive security & Active Directory
 
 A public portfolio documenting my hands-on learning and practice in offensive
-security: methodology, lab write-ups (retired machines only), and notes built
-while working toward OSCP.
+security: methodology, lab write-ups (retired / permitted machines only), and
+notes built while working toward OSCP.
 
 ---
 
@@ -68,5 +68,8 @@ Quick references I use myself:
 ---
 
 > ⚠️ **Ethical note:** every technique documented here was used in authorized,
-> legal training environments (HTB, THM, PG) or my own labs. Nothing from
-> active machines or exam content. Shared for defensive and educational purposes.
+> legal training environments (HTB, THM) or my own labs. Nothing from active
+> machines or exam content. Shared for defensive and educational purposes.
+> Proving Grounds progress is tracked above, but no PG write-ups are
+> published in this repo — see [writeups/README.md](./writeups/README.md)
+> for why.
