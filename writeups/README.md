@@ -49,29 +49,6 @@ commands. **Retired / permitted machines only.**
 | [Jerry](./hackthebox/jerry.md) | Easy | Default Tomcat manager creds, WAR upload RCE |
 | [Legacy](./hackthebox/legacy.md) | Easy | MS08-067 |
 
-### Proving Grounds (Practice)
-
-| Machine | Difficulty | Techniques |
-|---|---|---|
-| [Access](./proving-grounds/access.md) | Easy | Upload filter bypass via `.htaccess`, SPN enum, Kerberoasting |
-| [Algernon](./proving-grounds/algernon.md) | Easy | Public pre-auth RCE (SmarterMail) |
-| [AuthBy](./proving-grounds/authby.md) | Easy | Anonymous FTP creds, offline hash cracking, Juicy Potato |
-| [Boolean](./proving-grounds/boolean.md) | Easy | Client-side validation bypass, path traversal, SSH key deploy |
-| [Craft](./proving-grounds/craft.md) | Medium | LibreOffice macro RCE, writable webroot, PrintSpoofer |
-| [Extplorer](./proving-grounds/extplorer.md) | Easy | Default creds, config credential leak, `disk` group + `debugfs` |
-| [Heist](./proving-grounds/heist.md) | Medium | SSRF-triggered NTLM capture, BloodHound, GMSA read, `SeRestorePrivilege` |
-| [Hutch](./proving-grounds/hutch.md) | Medium | Anonymous LDAP password leak, WebDAV upload, PrintSpoofer |
-| [Internal](./proving-grounds/internal.md) | Easy | Public SMB RCE (CVE-2009-3103) |
-| [Jacko](./proving-grounds/jacko.md) | Easy | Unauthenticated H2 console RCE, GodPotato |
-| [Kevin](./proving-grounds/kevin.md) | Easy | Default creds, public Metasploit module (CVE-2009-3999) |
-| [Nickel](./proving-grounds/nickel.md) | Medium | API info disclosure, PDF cracking, localhost-only SYSTEM endpoint |
-| [Pelican](./proving-grounds/pelican.md) | Easy | Unauthenticated command injection, `sudo gcore` memory dump |
-| [Resourced](./proving-grounds/resourced.md) | Medium | NTDS leak via SMB share, Resource-Based Constrained Delegation |
-| [Shenzi](./proving-grounds/shenzi.md) | Easy | SMB null session, WordPress Theme Editor RCE, `AlwaysInstallElevated` |
-| [Slort](./proving-grounds/slort.md) | Easy | LFI-to-RFI, scheduled-task binary replacement |
-| [Squid](./proving-grounds/squid.md) | Medium | Port discovery through a proxy, phpMyAdmin default creds, FullPowers |
-| [Twiggy](./proving-grounds/twiggy.md) | Easy | Unauthenticated pre-auth RCE (SaltStack) |
-
 ### TryHackMe
 
 | Room | Difficulty | Techniques |
@@ -100,9 +77,12 @@ Policy is checked at publish time since it can change; see
 **TryHackMe** — generally the most permissive; many rooms explicitly
 encourage write-ups. Check the specific room's description regardless.
 
-**Proving Grounds** — Practice machines are usually fine; **never** anything
-that overlaps with the OSCP exam machine pool, and nothing from the exam
-itself.
+**Proving Grounds** — **no write-ups published in this repo.** OffSec's own
+["Rules of the Game"](https://help.offsec.com/hc/en-us/articles/360048114312-Rules-of-the-Game)
+asks users to refrain from sharing information about PG Practice machines,
+and the Practice pool includes retired OSCP exam machines — not worth the
+risk to the certification. Lab progress/stats are still fine to share (see
+the main README); the write-ups themselves are the part that stays private.
 
 **Golden rule:** when in doubt, skip it. No writeup is worth risking a
 platform account or a certification.
