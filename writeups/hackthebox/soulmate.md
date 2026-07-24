@@ -44,8 +44,9 @@ ffuf -u http://10.10.11.86 -H "Host: FUZZ.soulmate.htb" -w <subdomains-wordlist>
 This revealed `ftp.soulmate.htb` — a subdomain invisible from the main site
 entirely, hosting a **CrushFTP** login page.
 
-![CrushFTP login page](./assets/soulmate/02-crushftp-login.png) The page source leaked the exact
-version: `11.W.657`.
+![CrushFTP login page](./assets/soulmate/02-crushftp-login.png)
+
+The page source leaked the exact version: `11.W.657`.
 
 ---
 

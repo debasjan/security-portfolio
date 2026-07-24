@@ -34,7 +34,9 @@ than attack it, a quick search for its documented default credentials
 (`root` / `password`) was worth trying first — a lot of ticketing/helpdesk
 software ships with well-known defaults, easy to confirm with a quick search:
 
-![searching for Request Tracker default credentials](./assets/keeper/02-default-creds-search.png) that administrators forget to
+![searching for Request Tracker default credentials](./assets/keeper/02-default-creds-search.png)
+
+Default credentials are exactly the kind of thing administrators forget to
 rotate, and checking documentation before brute-forcing is always the
 cheaper move.
 

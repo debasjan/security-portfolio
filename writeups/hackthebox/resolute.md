@@ -79,8 +79,9 @@ mistake a rushed admin makes once and then forgets about.
 
 The leaked credentials belonged to `ryan`, a member of **DnsAdmins**.
 
-![ryan's membership in the DnsAdmins group](./assets/resolute/04-dnsadmins-group.png) This
-group can specify a plugin DLL for the DNS Server service to load — a
+![ryan's membership in the DnsAdmins group](./assets/resolute/04-dnsadmins-group.png)
+
+This group can specify a plugin DLL for the DNS Server service to load — a
 legitimate extensibility feature that, combined with write access to the
 registry key controlling it, becomes a privileged code-execution primitive:
 building a malicious DLL, pointing the DNS service at it, and restarting the

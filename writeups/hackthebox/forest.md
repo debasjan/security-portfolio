@@ -63,7 +63,9 @@ kerbrute userenum --dc 10.129.95.210 -d htb.local users.txt
 Both come back with valid usernames, including a service account:
 `svc-alfresco`.
 
-![kerbrute username enumeration](./assets/forest/02-kerbrute-valid-users.png) Service accounts are exactly the kind of principal worth
+![kerbrute username enumeration](./assets/forest/02-kerbrute-valid-users.png)
+
+Service accounts are exactly the kind of principal worth
 checking for **Kerberos pre-authentication disabled** — it's a very common
 misconfiguration and, unlike password spraying, checking for it doesn't risk
 a lockout.

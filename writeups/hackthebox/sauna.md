@@ -66,8 +66,9 @@ impacket-GetNPUsers egotistical-bank.local/ -usersfile users.txt -dc-ip 10.129.9
 One of the generated usernames, `fsmith`, has Kerberos pre-authentication
 disabled — the AS-REP comes back with a crackable hash.
 
-![AS-REP Roasting fsmith](./assets/sauna/02-asrep-roast.png) Cracked offline
-against `rockyou`:
+![AS-REP Roasting fsmith](./assets/sauna/02-asrep-roast.png)
+
+Cracked offline against `rockyou`:
 
 ```bash
 john hash.txt -w=/usr/share/wordlists/rockyou.txt
@@ -98,7 +99,9 @@ It flagged **AutoLogon credentials** in the registry — a second account,
 `svc_loanmgr`, configured to log on automatically with its password stored in
 cleartext.
 
-![AutoLogon credentials found in the registry](./assets/sauna/03-autologon-creds.png) This is a very common finding: AutoLogon is meant for convenience,
+![AutoLogon credentials found in the registry](./assets/sauna/03-autologon-creds.png)
+
+This is a very common finding: AutoLogon is meant for convenience,
 not security, and it leaves a plaintext credential sitting in
 `HKLM\...\Winlogon` for anyone with local access to read.
 
