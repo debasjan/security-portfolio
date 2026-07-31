@@ -1,6 +1,8 @@
 # Academy — Hack The Box
 
-<img src="./assets/academy/00-card.png" alt="Academy HTB machine card" width="650">
+<p align="center">
+  <img src="./assets/academy/00-card.png" alt="Academy HTB machine card" width="650">
+</p>
 
 | | |
 |---|---|

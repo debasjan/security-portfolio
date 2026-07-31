@@ -1,6 +1,8 @@
 # Shocker — Hack The Box
 
-<img src="./assets/shocker/00-card.png" alt="Shocker HTB machine card" width="650">
+<p align="center">
+  <img src="./assets/shocker/00-card.png" alt="Shocker HTB machine card" width="650">
+</p>
 
 | | |
 |---|---|

@@ -1,6 +1,8 @@
 # Monteverde — Hack The Box
 
-<img src="./assets/monteverde/00-card.png" alt="Monteverde HTB machine card" width="650">
+<p align="center">
+  <img src="./assets/monteverde/00-card.png" alt="Monteverde HTB machine card" width="650">
+</p>
 
 | | |
 |---|---|
