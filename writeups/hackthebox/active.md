@@ -1,6 +1,6 @@
 # Active — Hack The Box
 
-<img src="./assets/active/00-card.png" alt="Active HTB machine card" width="450">
+<img src="./assets/active/00-card.png" alt="Active HTB machine card" width="650">
 
 | | |
 |---|---|

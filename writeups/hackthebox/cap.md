@@ -1,6 +1,6 @@
 # Cap — Hack The Box
 
-<img src="./assets/cap/00-card.png" alt="Cap HTB machine card" width="450">
+<img src="./assets/cap/00-card.png" alt="Cap HTB machine card" width="650">
 
 | | |
 |---|---|

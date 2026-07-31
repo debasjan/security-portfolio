@@ -1,6 +1,6 @@
 # Forest — Hack The Box
 
-<img src="./assets/forest/00-card.png" alt="Forest HTB machine card" width="450">
+<img src="./assets/forest/00-card.png" alt="Forest HTB machine card" width="650">
 
 | | |
 |---|---|

@@ -1,6 +1,6 @@
 # Keeper — Hack The Box
 
-<img src="./assets/keeper/00-card.png" alt="Keeper HTB machine card" width="450">
+<img src="./assets/keeper/00-card.png" alt="Keeper HTB machine card" width="650">
 
 | | |
 |---|---|

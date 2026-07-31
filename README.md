@@ -49,11 +49,6 @@ Structured playbooks built from my own notes across dozens of machines:
 Machine solutions focused on **reasoning**, not just commands.
 Retired / permitted machines only, per each platform's policy.
 
-<img src="./writeups/hackthebox/assets/administrator/09-bloodhound-michael-benjamin.png" alt="BloodHound attack path from the Administrator write-up" width="700">
-
-*BloodHound tracing an ACL abuse path in [Administrator](./writeups/hackthebox/administrator.md) —
-one of 40 write-ups covering AD, Linux, and Windows.*
-
 ➡️ **[Full write-up index](./writeups/README.md)**
 
 ---

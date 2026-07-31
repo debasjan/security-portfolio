@@ -1,6 +1,6 @@
 # Expressway — Hack The Box
 
-<img src="./assets/expressway/00-card.png" alt="Expressway HTB machine card" width="450">
+<img src="./assets/expressway/00-card.png" alt="Expressway HTB machine card" width="650">
 
 | | |
 |---|---|

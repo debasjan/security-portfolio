@@ -1,6 +1,6 @@
 # Legacy — Hack The Box
 
-<img src="./assets/legacy/00-card.png" alt="Legacy HTB machine card" width="450">
+<img src="./assets/legacy/00-card.png" alt="Legacy HTB machine card" width="650">
 
 | | |
 |---|---|

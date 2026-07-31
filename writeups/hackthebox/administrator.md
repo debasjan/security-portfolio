@@ -1,6 +1,6 @@
 # Administrator — Hack The Box
 
-<img src="./assets/administrator/00-card.png" alt="Administrator HTB machine card" width="450">
+<img src="./assets/administrator/00-card.png" alt="Administrator HTB machine card" width="650">
 
 | | |
 |---|---|

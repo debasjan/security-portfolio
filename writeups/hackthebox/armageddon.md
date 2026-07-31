@@ -1,6 +1,6 @@
 # Armageddon — Hack The Box
 
-<img src="./assets/armageddon/00-card.png" alt="Armageddon HTB machine card" width="450">
+<img src="./assets/armageddon/00-card.png" alt="Armageddon HTB machine card" width="650">
 
 | | |
 |---|---|

@@ -1,6 +1,6 @@
 # Editor — Hack The Box
 
-<img src="./assets/editor/00-card.png" alt="Editor HTB machine card" width="450">
+<img src="./assets/editor/00-card.png" alt="Editor HTB machine card" width="650">
 
 | | |
 |---|---|

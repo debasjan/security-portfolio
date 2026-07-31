@@ -1,6 +1,6 @@
 # Blue — Hack The Box
 
-<img src="./assets/blue/00-card.png" alt="Blue HTB machine card" width="450">
+<img src="./assets/blue/00-card.png" alt="Blue HTB machine card" width="650">
 
 | | |
 |---|---|

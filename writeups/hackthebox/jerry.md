@@ -1,6 +1,6 @@
 # Jerry — Hack The Box
 
-<img src="./assets/jerry/00-card.png" alt="Jerry HTB machine card" width="450">
+<img src="./assets/jerry/00-card.png" alt="Jerry HTB machine card" width="650">
 
 | | |
 |---|---|

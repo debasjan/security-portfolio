@@ -1,6 +1,6 @@
 # Outbound — Hack The Box
 
-<img src="./assets/outbound/00-card.png" alt="Outbound HTB machine card" width="450">
+<img src="./assets/outbound/00-card.png" alt="Outbound HTB machine card" width="650">
 
 | | |
 |---|---|
