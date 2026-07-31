@@ -1,5 +1,7 @@
 # Sauna — Hack The Box
 
+<img src="./assets/sauna/00-card.png" alt="Sauna HTB machine card" width="450">
+
 | | |
 |---|---|
 | **Platform** | Hack The Box |

@@ -1,5 +1,7 @@
 # Shocker — Hack The Box
 
+<img src="./assets/shocker/00-card.png" alt="Shocker HTB machine card" width="450">
+
 | | |
 |---|---|
 | **Platform** | Hack The Box |

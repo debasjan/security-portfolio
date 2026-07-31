@@ -1,5 +1,7 @@
 # Fluffy — Hack The Box
 
+<img src="./assets/fluffy/00-card.png" alt="Fluffy HTB machine card" width="450">
+
 | | |
 |---|---|
 | **Platform** | Hack The Box |

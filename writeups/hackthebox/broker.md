@@ -1,5 +1,7 @@
 # Broker — Hack The Box
 
+<img src="./assets/broker/00-card.jpg" alt="Broker HTB machine card" width="450">
+
 | | |
 |---|---|
 | **Platform** | Hack The Box |

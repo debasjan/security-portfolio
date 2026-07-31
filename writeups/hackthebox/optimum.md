@@ -1,5 +1,7 @@
 # Optimum — Hack The Box
 
+<img src="./assets/optimum/00-card.png" alt="Optimum HTB machine card" width="450">
+
 | | |
 |---|---|
 | **Platform** | Hack The Box |

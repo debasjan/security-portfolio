@@ -1,5 +1,7 @@
 # Lame — Hack The Box
 
+<img src="./assets/lame/00-card.png" alt="Lame HTB machine card" width="450">
+
 | | |
 |---|---|
 | **Platform** | Hack The Box |

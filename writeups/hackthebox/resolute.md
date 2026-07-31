@@ -1,5 +1,7 @@
 # Resolute — Hack The Box
 
+<img src="./assets/resolute/00-card.webp" alt="Resolute HTB machine card" width="450">
+
 | | |
 |---|---|
 | **Platform** | Hack The Box |

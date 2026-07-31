@@ -1,5 +1,7 @@
 # Academy — Hack The Box
 
+<img src="./assets/academy/00-card.png" alt="Academy HTB machine card" width="450">
+
 | | |
 |---|---|
 | **Platform** | Hack The Box |

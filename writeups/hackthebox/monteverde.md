@@ -1,5 +1,7 @@
 # Monteverde — Hack The Box
 
+<img src="./assets/monteverde/00-card.png" alt="Monteverde HTB machine card" width="450">
+
 | | |
 |---|---|
 | **Platform** | Hack The Box |

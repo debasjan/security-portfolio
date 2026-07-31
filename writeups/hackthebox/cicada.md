@@ -1,5 +1,7 @@
 # Cicada — Hack The Box
 
+<img src="./assets/cicada/00-card.png" alt="Cicada HTB machine card" width="450">
+
 | | |
 |---|---|
 | **Platform** | Hack The Box |
