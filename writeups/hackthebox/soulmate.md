@@ -141,4 +141,13 @@ flag directly through the same primitive:
 
 ---
 
+## Tools used
+
+- `nmap`, `ffuf`
+- CVE-2025-31161 CrushFTP exploit
+- LinPEAS
+- `ssh`
+
+---
+
 **Machine:** [Hack The Box — Soulmate](https://www.hackthebox.com/machines/soulmate)

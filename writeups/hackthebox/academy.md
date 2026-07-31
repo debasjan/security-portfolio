@@ -90,10 +90,12 @@ ssh grimmie@<TARGET_IP>
 `backup.sh`. Checking `crontab -l` showed nothing for the user directly, but
 running **pspy** (to watch scheduled activity without needing root) revealed
 the script was being executed periodically as a higher-privileged user
-regardless. Since I could write the script myself, replacing its contents
-with a reverse shell one-liner and waiting for the next execution window
+regardless:
+
 ![pspy confirming backup.sh runs on a schedule](./assets/academy/04-cron-backup.png)
 
+Since I could write the script myself, replacing its contents with a
+reverse shell one-liner and waiting for the next execution window
 delivered a shell in the target account's context. Root flag retrieved.
 
 ---
@@ -122,6 +124,15 @@ delivered a shell in the target account's context. Root flag retrieved.
 - Audit script permissions for anything invoked by cron or a scheduled task —
   the invoking user's identity is only as safe as the script's write
   permissions.
+
+---
+
+## Tools used
+
+- `nmap`
+- `ftp`, `hashcat`
+- pentestmonkey PHP reverse shell
+- LinPEAS, `pspy`
 
 ---
 

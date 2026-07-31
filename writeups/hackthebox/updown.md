@@ -59,11 +59,12 @@ including anything a developer ever committed and later "removed."
 ## Foothold / Initial Access
 
 Dumping the repository and reading `.htaccess` revealed the actual gate on
-the dev subdomain: a required custom header, `Special-Dev: only4dev`. ![Burp match-and-replace rule adding the Special-Dev header](./assets/updown/03-burp-special-dev-header.png)
+the dev subdomain: a required custom header, `Special-Dev: only4dev`.
 
-Adding
-that header to every request unlocked the subdomain entirely — the `403` had
-never been a real access control, just a header check.
+![Burp match-and-replace rule adding the Special-Dev header](./assets/updown/03-burp-special-dev-header.png)
+
+Adding that header to every request unlocked the subdomain entirely — the
+`403` had never been a real access control, just a header check.
 
 The dev site's `index.php` used PHP's `include()` on a user-supplied
 parameter — a classic Local File Inclusion / Remote Code Execution shape —
@@ -149,6 +150,16 @@ Root shell obtained, root flag retrieved.
   missed.
 - Migrate any SUID script off Python 2, and never use `input()` (Python 2) on
   untrusted data — use `raw_input()` and explicit parsing instead.
+
+---
+
+## Tools used
+
+- `nmap`, `ffuf`, `gobuster`
+- `git-dumper`
+- Burp Suite
+- dfunc-bypasser
+- `sudo`, `easy_install`
 
 ---
 

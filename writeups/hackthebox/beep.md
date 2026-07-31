@@ -103,4 +103,13 @@ This landed directly as root — both flags retrieved in the same step.
 
 ---
 
+## Tools used
+
+- `nmap`
+- `openssl s_client`
+- Elastix LFI (Exploit-DB 37637)
+- `ssh`
+
+---
+
 **Machine:** [Hack The Box — Beep](https://www.hackthebox.com/machines/beep)

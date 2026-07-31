@@ -117,4 +117,12 @@ curl localhost:1337/root/root.txt
 
 ---
 
+## Tools used
+
+- `nmap`
+- CVE-2023-46604 PoC (Python)
+- `sudo`, `nginx`, `ss`, `curl`
+
+---
+
 **Machine:** [Hack The Box — Broker](https://www.hackthebox.com/machines/broker)

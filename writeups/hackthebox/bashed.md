@@ -113,4 +113,12 @@ Root flag retrieved.
 
 ---
 
+## Tools used
+
+- `nmap`, `gobuster`
+- phpbash
+- Python reverse shell one-liner
+
+---
+
 **Machine:** [Hack The Box — Bashed](https://www.hackthebox.com/machines/bashed)

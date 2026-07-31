@@ -127,4 +127,13 @@ Administrator-level access on the domain controller confirmed.
 
 ---
 
+## Tools used
+
+- `nmap`, `enum4linux`
+- Kerbrute
+- Impacket (`GetNPUsers`, `secretsdump`)
+- `hashcat`, `smbclient`, `evil-winrm`
+
+---
+
 **Room:** [TryHackMe — Attacktive Directory](https://tryhackme.com/room/attacktivedirectory)

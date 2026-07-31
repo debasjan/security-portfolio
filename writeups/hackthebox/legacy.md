@@ -78,4 +78,11 @@ The exploit succeeded immediately, returning a session running as
 
 ---
 
+## Tools used
+
+- `nmap`
+- Metasploit (`ms08_067_netapi`)
+
+---
+
 **Machine:** [Hack The Box — Legacy](https://www.hackthebox.com/machines/legacy)

@@ -105,4 +105,12 @@ Root shell obtained. Root flag retrieved.
 
 ---
 
+## Tools used
+
+- `nmap`, `gobuster`
+- `nc`
+- `sudo`, `perl`
+
+---
+
 **Room:** [TryHackMe — LazyAdmin](https://tryhackme.com/room/lazyadmin)

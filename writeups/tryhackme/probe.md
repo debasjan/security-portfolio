@@ -83,4 +83,12 @@ self-signed HTTPS site.
 
 ---
 
+## Tools used
+
+- `nmap`
+- `openssl s_client` (certificate inspection)
+- Nikto
+
+---
+
 **Room:** [TryHackMe — Probe](https://tryhackme.com/room/probe)

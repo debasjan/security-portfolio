@@ -119,4 +119,13 @@ and the root flag.
 
 ---
 
+## Tools used
+
+- `nmap`
+- CVE-2025-24893 XWiki exploit
+- `ssh`
+- CVE-2024-32019 ndsudo PoC
+
+---
+
 **Machine:** [Hack The Box — Editor](https://www.hackthebox.com/machines/editor)

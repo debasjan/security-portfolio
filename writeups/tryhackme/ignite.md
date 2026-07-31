@@ -83,4 +83,12 @@ box. Root flag retrieved.
 
 ---
 
+## Tools used
+
+- `nmap`, `gobuster`
+- `searchsploit`
+- `nc`
+
+---
+
 **Room:** [TryHackMe — Ignite](https://tryhackme.com/room/ignite)

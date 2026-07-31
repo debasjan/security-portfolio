@@ -116,4 +116,13 @@ Root flag retrieved.
 
 ---
 
+## Tools used
+
+- `nmap`
+- `ssh`, `scp`
+- CVE-2023-32784 PoC (KeePass dump analysis)
+- `puttygen`
+
+---
+
 **Machine:** [Hack The Box — Keeper](https://www.hackthebox.com/machines/keeper)

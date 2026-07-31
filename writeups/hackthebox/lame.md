@@ -88,4 +88,11 @@ escalation phase needed. Both flags were retrieved in the same step.
 
 ---
 
+## Tools used
+
+- `nmap`
+- Metasploit (`vsftpd_234_backdoor`, `usermap_script`)
+
+---
+
 **Machine:** [Hack The Box — Lame](https://www.hackthebox.com/machines/lame)

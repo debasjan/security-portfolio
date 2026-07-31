@@ -54,7 +54,9 @@ run
 ```
 
 This landed a shell as `www-data` — not yet the user flag, but a foothold
-into the application's own files. ![Roundcube config.inc.php leaking the DB password and des_key](./assets/outbound/03-roundcube-config.png)
+into the application's own files.
+
+![Roundcube config.inc.php leaking the DB password and des_key](./assets/outbound/03-roundcube-config.png)
 
 Roundcube's `config.inc.php` held both a
 MySQL credential and a `des_key` value — the encryption key Roundcube itself
@@ -129,6 +131,15 @@ gave a root shell and the root flag.
 - Patch monitoring tools like `below` with the same urgency as user-facing
   software, and avoid granting passwordless `sudo` rights to any binary that
   writes logs, since log paths are a common privilege-escalation surface.
+
+---
+
+## Tools used
+
+- `nmap`
+- Metasploit (Roundcube CVE-2025-49113)
+- `mysql`
+- CVE-2025-27591 PoC
 
 ---
 

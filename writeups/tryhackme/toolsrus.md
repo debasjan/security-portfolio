@@ -91,4 +91,12 @@ phase was needed on this box.
 
 ---
 
+## Tools used
+
+- `nmap`, `gobuster`
+- Hydra, Nikto
+- Metasploit (Tomcat manager deploy)
+
+---
+
 **Room:** [TryHackMe — ToolsRus](https://tryhackme.com/room/toolsrus)

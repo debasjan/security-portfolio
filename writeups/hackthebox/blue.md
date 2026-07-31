@@ -89,4 +89,11 @@ immediately, with no privilege escalation required at all.
 
 ---
 
+## Tools used
+
+- `nmap`
+- Metasploit (`smb_ms17_010`, `ms17_010_eternalblue`)
+
+---
+
 **Machine:** [Hack The Box — Blue](https://www.hackthebox.com/machines/blue)

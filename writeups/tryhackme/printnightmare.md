@@ -136,4 +136,13 @@ July 2021) includes:
 
 ---
 
+## Tools used
+
+- CVE-2021-1675 PoC
+- `msfvenom`, Metasploit multi/handler
+- Impacket (`smbserver`, `rpcdump`)
+- Windows Event Viewer, Sysmon
+
+---
+
 **Room:** [TryHackMe — PrintNightmare](https://tryhackme.com/room/printnightmare)

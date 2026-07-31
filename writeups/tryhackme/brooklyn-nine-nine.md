@@ -93,4 +93,12 @@ Root shell obtained. Root flag retrieved.
 
 ---
 
+## Tools used
+
+- `nmap`
+- `ftp`, `ssh`
+- GTFOBins (`less`)
+
+---
+
 **Room:** [TryHackMe — Brooklyn Nine Nine](https://tryhackme.com/room/brooklynninenine)

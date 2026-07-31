@@ -99,4 +99,12 @@ Root shell obtained. Root flag retrieved.
 
 ---
 
+## Tools used
+
+- `nmap`, `gobuster`
+- `nc`
+- `find` (SUID sweep), GTFOBins
+
+---
+
 **Room:** [TryHackMe — RootMe](https://tryhackme.com/room/rrootme)

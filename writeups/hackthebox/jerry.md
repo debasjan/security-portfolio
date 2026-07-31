@@ -94,4 +94,12 @@ were located together in a single file under the Administrator's desktop.
 
 ---
 
+## Tools used
+
+- `nmap`, `nikto`
+- Metasploit (`tomcat_mgr_login`)
+- `msfvenom`
+
+---
+
 **Machine:** [Hack The Box — Jerry](https://www.hackthebox.com/machines/jerry)

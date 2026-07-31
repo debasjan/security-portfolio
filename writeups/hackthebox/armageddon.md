@@ -134,4 +134,13 @@ Root flag retrieved.
 
 ---
 
+## Tools used
+
+- `nmap`, `gobuster`
+- Drupalgeddon2 exploit (Ruby)
+- `mysql`, `john`
+- `fpm` (snap package builder)
+
+---
+
 **Machine:** [Hack The Box — Armageddon](https://www.hackthebox.com/machines/armageddon)

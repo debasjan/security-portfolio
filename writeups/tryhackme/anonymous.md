@@ -114,4 +114,12 @@ Root shell obtained. Root flag retrieved.
 
 ---
 
+## Tools used
+
+- `nmap`, `enum4linux`
+- `ftp`, `nc`
+- `find` (SUID sweep), GTFOBins
+
+---
+
 **Room:** [TryHackMe — Anonymous](https://tryhackme.com/room/anonymous)

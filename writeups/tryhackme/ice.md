@@ -119,4 +119,11 @@ forward, a persistence technique built on having already compromised the
 
 ---
 
+## Tools used
+
+- `nmap`
+- Metasploit / Meterpreter (`icecast_header`, `local_exploit_suggester`, `bypassuac_eventvwr`, `kiwi`)
+
+---
+
 **Room:** [TryHackMe — Ice](https://tryhackme.com/room/ice)

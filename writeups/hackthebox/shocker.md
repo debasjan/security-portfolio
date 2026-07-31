@@ -106,4 +106,12 @@ Root shell obtained, root flag retrieved.
 
 ---
 
+## Tools used
+
+- `nmap`, `gobuster`
+- Metasploit (`apache_mod_cgi_bash_env_exec`)
+- `sudo`, `perl`
+
+---
+
 **Machine:** [Hack The Box — Shocker](https://www.hackthebox.com/machines/shocker)

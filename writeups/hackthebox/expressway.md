@@ -116,4 +116,13 @@ and triggering the load. Running it delivered a root shell and the root flag.
 
 ---
 
+## Tools used
+
+- `nmap` (TCP + UDP)
+- `ike-scan`, `psk-crack`
+- `ssh`, LinPEAS
+- CVE-2025-32463 PoC
+
+---
+
 **Machine:** [Hack The Box — Expressway](https://www.hackthebox.com/machines/expressway)

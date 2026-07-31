@@ -105,4 +105,13 @@ for actual encryption or access control.
 
 ---
 
+## Tools used
+
+- `nmap`, `gobuster`
+- CyberChef
+- `stegcracker`
+- `ssh`
+
+---
+
 **Room:** [TryHackMe — Easy Peasy](https://tryhackme.com/room/easypeasy)
