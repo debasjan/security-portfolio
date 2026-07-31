@@ -1,6 +1,6 @@
 # Soulmate — Hack The Box
 
-<p align="center">
+<p align="left">
   <img src="./assets/soulmate/00-card.png" alt="Soulmate HTB machine card" width="650">
 </p>
 

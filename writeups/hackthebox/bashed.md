@@ -1,6 +1,6 @@
 # Bashed — Hack The Box
 
-<p align="center">
+<p align="left">
   <img src="./assets/bashed/00-card.png" alt="Bashed HTB machine card" width="650">
 </p>
 

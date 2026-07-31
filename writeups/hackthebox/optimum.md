@@ -1,6 +1,6 @@
 # Optimum — Hack The Box
 
-<p align="center">
+<p align="left">
   <img src="./assets/optimum/00-card.png" alt="Optimum HTB machine card" width="650">
 </p>
 

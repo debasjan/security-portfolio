@@ -1,6 +1,6 @@
 # Sau — Hack The Box
 
-<p align="center">
+<p align="left">
   <img src="./assets/sau/00-card.png" alt="Sau HTB machine card" width="650">
 </p>
 

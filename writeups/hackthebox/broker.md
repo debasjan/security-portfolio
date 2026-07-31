@@ -1,6 +1,6 @@
 # Broker — Hack The Box
 
-<p align="center">
+<p align="left">
   <img src="./assets/broker/00-card.jpg" alt="Broker HTB machine card" width="650">
 </p>
 

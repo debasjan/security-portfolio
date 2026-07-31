@@ -1,6 +1,6 @@
 # UpDown — Hack The Box
 
-<p align="center">
+<p align="left">
   <img src="./assets/updown/00-card.png" alt="UpDown HTB machine card" width="650">
 </p>
 

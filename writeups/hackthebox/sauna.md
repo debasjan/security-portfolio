@@ -1,6 +1,6 @@
 # Sauna — Hack The Box
 
-<p align="center">
+<p align="left">
   <img src="./assets/sauna/00-card.png" alt="Sauna HTB machine card" width="650">
 </p>
 

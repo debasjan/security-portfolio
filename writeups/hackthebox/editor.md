@@ -1,6 +1,6 @@
 # Editor — Hack The Box
 
-<p align="center">
+<p align="left">
   <img src="./assets/editor/00-card.png" alt="Editor HTB machine card" width="650">
 </p>
 

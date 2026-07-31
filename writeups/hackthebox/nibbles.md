@@ -1,6 +1,6 @@
 # Nibbles — Hack The Box
 
-<p align="center">
+<p align="left">
   <img src="./assets/nibbles/00-card.png" alt="Nibbles HTB machine card" width="650">
 </p>
 

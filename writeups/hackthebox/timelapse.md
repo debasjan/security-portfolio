@@ -1,6 +1,6 @@
 # Timelapse — Hack The Box
 
-<p align="center">
+<p align="left">
   <img src="./assets/timelapse/00-card.png" alt="Timelapse HTB machine card" width="650">
 </p>
 

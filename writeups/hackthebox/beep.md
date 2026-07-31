@@ -1,6 +1,6 @@
 # Beep — Hack The Box
 
-<p align="center">
+<p align="left">
   <img src="./assets/beep/00-card.png" alt="Beep HTB machine card" width="650">
 </p>
 

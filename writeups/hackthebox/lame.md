@@ -1,6 +1,6 @@
 # Lame — Hack The Box
 
-<p align="center">
+<p align="left">
   <img src="./assets/lame/00-card.png" alt="Lame HTB machine card" width="650">
 </p>
 
