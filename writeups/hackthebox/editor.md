@@ -128,4 +128,8 @@ and the root flag.
 
 ---
 
+**See also:** [Linux privilege escalation methodology](../../methodology/linux-privesc.md)
+
+---
+
 **Machine:** [Hack The Box — Editor](https://www.hackthebox.com/machines/editor)

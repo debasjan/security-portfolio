@@ -114,4 +114,8 @@ Root shell obtained, root flag retrieved.
 
 ---
 
+**See also:** [Linux privilege escalation methodology](../../methodology/linux-privesc.md)
+
+---
+
 **Machine:** [Hack The Box — Shocker](https://www.hackthebox.com/machines/shocker)

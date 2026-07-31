@@ -255,4 +255,8 @@ Read the final flag from `C:\Users\Administrator\Desktop\root.txt`.
 
 ---
 
+**See also:** [Active Directory methodology](../../methodology/active-directory.md)
+
+---
+
 **Machine:** [Hack The Box — Administrator](https://www.hackthebox.com/machines/administrator)

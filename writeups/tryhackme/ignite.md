@@ -91,4 +91,8 @@ box. Root flag retrieved.
 
 ---
 
+**See also:** [Web application attacks methodology](../../methodology/web-application-attacks.md)
+
+---
+
 **Room:** [TryHackMe — Ignite](https://tryhackme.com/room/ignite)

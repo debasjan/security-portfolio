@@ -91,4 +91,8 @@ self-signed HTTPS site.
 
 ---
 
+**See also:** [Enumeration & foothold methodology](../../methodology/enumeration.md)
+
+---
+
 **Room:** [TryHackMe — Probe](https://tryhackme.com/room/probe)

@@ -126,4 +126,8 @@ forward, a persistence technique built on having already compromised the
 
 ---
 
+**See also:** [Windows privilege escalation methodology](../../methodology/windows-privesc.md)
+
+---
+
 **Room:** [TryHackMe — Ice](https://tryhackme.com/room/ice)

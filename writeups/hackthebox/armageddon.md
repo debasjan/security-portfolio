@@ -143,4 +143,8 @@ Root flag retrieved.
 
 ---
 
+**See also:** [Linux privilege escalation methodology](../../methodology/linux-privesc.md)
+
+---
+
 **Machine:** [Hack The Box — Armageddon](https://www.hackthebox.com/machines/armageddon)

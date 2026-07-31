@@ -217,4 +217,8 @@ flag.
 
 ---
 
+**See also:** [Active Directory methodology](../../methodology/active-directory.md)
+
+---
+
 **Machine:** [Hack The Box — Fluffy](https://www.hackthebox.com/machines/fluffy)

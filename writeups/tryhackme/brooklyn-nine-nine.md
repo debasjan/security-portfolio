@@ -101,4 +101,8 @@ Root shell obtained. Root flag retrieved.
 
 ---
 
+**See also:** [Linux privilege escalation methodology](../../methodology/linux-privesc.md)
+
+---
+
 **Room:** [TryHackMe — Brooklyn Nine Nine](https://tryhackme.com/room/brooklynninenine)

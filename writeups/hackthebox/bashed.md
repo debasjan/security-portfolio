@@ -121,4 +121,8 @@ Root flag retrieved.
 
 ---
 
+**See also:** [Linux privilege escalation methodology](../../methodology/linux-privesc.md)
+
+---
+
 **Machine:** [Hack The Box — Bashed](https://www.hackthebox.com/machines/bashed)

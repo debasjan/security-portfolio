@@ -169,4 +169,8 @@ root flag.
 
 ---
 
+**See also:** [Active Directory methodology](../../methodology/active-directory.md)
+
+---
+
 **Machine:** [Hack The Box — Monteverde](https://www.hackthebox.com/machines/monteverde)

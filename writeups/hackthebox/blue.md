@@ -96,4 +96,8 @@ immediately, with no privilege escalation required at all.
 
 ---
 
+**See also:** [Windows privilege escalation methodology](../../methodology/windows-privesc.md)
+
+---
+
 **Machine:** [Hack The Box — Blue](https://www.hackthebox.com/machines/blue)

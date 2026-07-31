@@ -125,4 +125,8 @@ and triggering the load. Running it delivered a root shell and the root flag.
 
 ---
 
+**See also:** [Linux privilege escalation methodology](../../methodology/linux-privesc.md)
+
+---
+
 **Machine:** [Hack The Box — Expressway](https://www.hackthebox.com/machines/expressway)

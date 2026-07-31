@@ -143,4 +143,8 @@ gave a root shell and the root flag.
 
 ---
 
+**See also:** [Linux privilege escalation methodology](../../methodology/linux-privesc.md)
+
+---
+
 **Machine:** [Hack The Box — Outbound](https://www.hackthebox.com/machines/outbound)

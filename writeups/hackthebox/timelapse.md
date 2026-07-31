@@ -170,4 +170,8 @@ That password gave a WinRM session as Administrator and the root flag.
 
 ---
 
+**See also:** [Active Directory methodology](../../methodology/active-directory.md)
+
+---
+
 **Machine:** [Hack The Box — Timelapse](https://www.hackthebox.com/machines/timelapse)

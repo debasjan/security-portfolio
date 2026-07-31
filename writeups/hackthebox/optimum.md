@@ -134,4 +134,8 @@ Administrator's desktop.
 
 ---
 
+**See also:** [Windows privilege escalation methodology](../../methodology/windows-privesc.md)
+
+---
+
 **Machine:** [Hack The Box — Optimum](https://www.hackthebox.com/machines/optimum)

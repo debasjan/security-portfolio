@@ -152,4 +152,8 @@ Root shell obtained, root flag retrieved.
 
 ---
 
+**See also:** [Linux privilege escalation methodology](../../methodology/linux-privesc.md)
+
+---
+
 **Machine:** [Hack The Box — Cap](https://app.hackthebox.com/machines/Cap/information)

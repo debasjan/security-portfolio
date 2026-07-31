@@ -175,4 +175,8 @@ Got a shell as root and found the flag in `/root/root.txt`.
 
 ---
 
+**See also:** [Linux privilege escalation methodology](../../methodology/linux-privesc.md)
+
+---
+
 **Machine:** [Hack The Box — Sau](https://www.hackthebox.com/machines/sau)

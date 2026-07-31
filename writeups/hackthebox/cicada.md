@@ -209,4 +209,8 @@ Rooted, and read the flag from
 
 ---
 
+**See also:** [Active Directory methodology](../../methodology/active-directory.md)
+
+---
+
 **Machine:** [Hack The Box — Cicada](https://www.hackthebox.com/machines/cicada)

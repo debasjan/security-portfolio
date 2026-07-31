@@ -112,4 +112,8 @@ This landed directly as root — both flags retrieved in the same step.
 
 ---
 
+**See also:** [Linux privilege escalation methodology](../../methodology/linux-privesc.md)
+
+---
+
 **Machine:** [Hack The Box — Beep](https://www.hackthebox.com/machines/beep)

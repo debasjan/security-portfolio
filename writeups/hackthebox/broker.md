@@ -125,4 +125,8 @@ curl localhost:1337/root/root.txt
 
 ---
 
+**See also:** [Linux privilege escalation methodology](../../methodology/linux-privesc.md)
+
+---
+
 **Machine:** [Hack The Box — Broker](https://www.hackthebox.com/machines/broker)

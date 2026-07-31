@@ -150,4 +150,8 @@ flag directly through the same primitive:
 
 ---
 
+**See also:** [Linux privilege escalation methodology](../../methodology/linux-privesc.md)
+
+---
+
 **Machine:** [Hack The Box — Soulmate](https://www.hackthebox.com/machines/soulmate)

@@ -114,4 +114,8 @@ for actual encryption or access control.
 
 ---
 
+**See also:** [Enumeration & foothold methodology](../../methodology/enumeration.md)
+
+---
+
 **Room:** [TryHackMe — Easy Peasy](https://tryhackme.com/room/easypeasy)

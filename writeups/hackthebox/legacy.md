@@ -85,4 +85,8 @@ The exploit succeeded immediately, returning a session running as
 
 ---
 
+**See also:** [Windows privilege escalation methodology](../../methodology/windows-privesc.md)
+
+---
+
 **Machine:** [Hack The Box — Legacy](https://www.hackthebox.com/machines/legacy)

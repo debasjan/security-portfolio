@@ -209,4 +209,8 @@ impacket-psexec active.htb/Administrator@10.10.10.100
 
 ---
 
+**See also:** [Active Directory methodology](../../methodology/active-directory.md)
+
+---
+
 **Machine:** [Hack The Box — Active](https://www.hackthebox.com/machines/active)

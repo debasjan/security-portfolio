@@ -182,4 +182,8 @@ Root flag retrieved.
 
 ---
 
+**See also:** [Active Directory methodology](../../methodology/active-directory.md)
+
+---
+
 **Machine:** [Hack The Box — Resolute](https://www.hackthebox.com/machines/resolute)

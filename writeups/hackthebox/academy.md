@@ -136,4 +136,8 @@ delivered a shell in the target account's context. Root flag retrieved.
 
 ---
 
+**See also:** [Linux privilege escalation methodology](../../methodology/linux-privesc.md)
+
+---
+
 **Machine:** [Hack The Box — Academy](https://www.hackthebox.com/machines/academy)

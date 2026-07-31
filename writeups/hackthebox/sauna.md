@@ -165,4 +165,8 @@ Domain Admin, root flag retrieved.
 
 ---
 
+**See also:** [Active Directory methodology](../../methodology/active-directory.md)
+
+---
+
 **Machine:** [Hack The Box — Sauna](https://www.hackthebox.com/machines/sauna)

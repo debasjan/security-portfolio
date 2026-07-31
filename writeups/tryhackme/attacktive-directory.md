@@ -136,4 +136,8 @@ Administrator-level access on the domain controller confirmed.
 
 ---
 
+**See also:** [Active Directory methodology](../../methodology/active-directory.md)
+
+---
+
 **Room:** [TryHackMe — Attacktive Directory](https://tryhackme.com/room/attacktivedirectory)

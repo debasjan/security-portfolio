@@ -102,4 +102,8 @@ were located together in a single file under the Administrator's desktop.
 
 ---
 
+**See also:** [Windows privilege escalation methodology](../../methodology/windows-privesc.md)
+
+---
+
 **Machine:** [Hack The Box — Jerry](https://www.hackthebox.com/machines/jerry)

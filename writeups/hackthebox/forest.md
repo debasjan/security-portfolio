@@ -211,4 +211,8 @@ Domain Admin, root flag retrieved from
 
 ---
 
+**See also:** [Active Directory methodology](../../methodology/active-directory.md)
+
+---
+
 **Machine:** [Hack The Box — Forest](https://www.hackthebox.com/machines/forest)

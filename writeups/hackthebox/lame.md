@@ -95,4 +95,8 @@ escalation phase needed. Both flags were retrieved in the same step.
 
 ---
 
+**See also:** [Linux privilege escalation methodology](../../methodology/linux-privesc.md)
+
+---
+
 **Machine:** [Hack The Box — Lame](https://www.hackthebox.com/machines/lame)

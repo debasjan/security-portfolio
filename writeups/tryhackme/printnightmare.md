@@ -145,4 +145,8 @@ July 2021) includes:
 
 ---
 
+**See also:** [Windows privilege escalation methodology](../../methodology/windows-privesc.md)
+
+---
+
 **Room:** [TryHackMe — PrintNightmare](https://tryhackme.com/room/printnightmare)

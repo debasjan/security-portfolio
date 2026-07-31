@@ -99,4 +99,8 @@ phase was needed on this box.
 
 ---
 
+**See also:** [Web application attacks methodology](../../methodology/web-application-attacks.md)
+
+---
+
 **Room:** [TryHackMe — ToolsRus](https://tryhackme.com/room/toolsrus)

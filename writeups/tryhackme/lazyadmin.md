@@ -113,4 +113,8 @@ Root shell obtained. Root flag retrieved.
 
 ---
 
+**See also:** [Linux privilege escalation methodology](../../methodology/linux-privesc.md)
+
+---
+
 **Room:** [TryHackMe — LazyAdmin](https://tryhackme.com/room/lazyadmin)
