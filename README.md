@@ -6,6 +6,9 @@ A public portfolio documenting my hands-on learning and practice in offensive
 security: methodology, lab write-ups (retired / permitted machines only), and
 notes built while working toward OSCP.
 
+📝 **Blog (Polish):** [debasjan.github.io](https://debasjan.github.io/) — the
+same write-ups in a shorter, more frequently-updated form.
+
 ---
 
 ## 👤 About me
@@ -63,6 +66,7 @@ Quick references I use myself:
 
 ## 📬 Contact
 
+- Blog: [debasjan.github.io](https://debasjan.github.io/)
 - LinkedIn: [Jan Jędrzejak](https://www.linkedin.com/in/jan-j%C4%99drzejak-626182396/)
 
 ---
