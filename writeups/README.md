@@ -14,16 +14,23 @@ commands. **Retired / permitted machines only.**
 | [Fluffy](./hackthebox/fluffy.md) | Easy | CVE-2025-24071, ACL chaining, ADCS ESC16 |
 | [Forest](./hackthebox/forest.md) | Easy | AS-REP Roasting, BloodHound, ACL abuse, DCSync |
 | [Sauna](./hackthebox/sauna.md) | Easy | Username OSINT, AS-REP Roasting, AutoLogon creds, DCSync |
+| [Support](./hackthebox/support.md) | Easy | Anonymous SMB, .NET decompilation, LDAP `info` leak, RBCD |
 | [Timelapse](./hackthebox/timelapse.md) | Easy | Archive/PFX cracking, cert-based auth, LAPS abuse |
 | [Administrator](./hackthebox/administrator.md) | Medium | ACL chaining, password-manager cracking, targeted Kerberoast, DCSync |
+| [Escape](./hackthebox/escape.md) | Medium | Guest SMB PDF, MSSQL hash capture, AD CS ESC1 |
 | [Monteverde](./hackthebox/monteverde.md) | Medium | Anonymous LDAP, password spray, Azure AD Connect extraction |
+| [Puppy](./hackthebox/puppy.md) | Medium | `GenericWrite` group abuse, KeePass, account re-enable, DPAPI |
 | [Resolute](./hackthebox/resolute.md) | Medium | Anonymous enum, PS transcript leak, DnsAdmins abuse |
+| [Signed](./hackthebox/signed.md) | Medium | MSSQL-only enum, Responder crack, Kerberos Silver Ticket |
+| [StreamIO](./hackthebox/streamio.md) | Medium | UNION SQLi, LFI→source, `firepwd` on `key4.db`, `WriteOwner`→LAPS |
+| [Voleur](./hackthebox/voleur.md) | Hard | office2john, AD Recycle Bin restore, DPAPI, targeted Kerberoast (Kerberos-only) |
 
 ### Linux
 
 | Machine | Difficulty | Techniques |
 |---|---|---|
 | [Cap](./hackthebox/cap.md) | Easy | IDOR, pcap credential extraction, Linux capabilities |
+| [CozyHosting](./hackthebox/cozyhosting.md) | Easy | Spring Actuator session hijack, cmd injection (`${IFS}`), sudo `ssh` |
 | [Nibbles](./hackthebox/nibbles.md) | Easy | Source recon, CMS RCE, sudo misconfiguration |
 | [Academy](./hackthebox/academy.md) | Easy | Anonymous FTP leak, upload RCE, cron hijack |
 | [Armageddon](./hackthebox/armageddon.md) | Easy | Drupalgeddon2, config leak, GTFOBins `snap` |
@@ -46,8 +53,12 @@ commands. **Retired / permitted machines only.**
 |---|---|---|
 | [Optimum](./hackthebox/optimum.md) | Easy | Version-based RCE, kernel exploit |
 | [Blue](./hackthebox/blue.md) | Easy | EternalBlue / MS17-010 |
+| [Devel](./hackthebox/devel.md) | Easy | Anonymous FTP → ASPX RCE, kernel privesc |
+| [Heist](./hackthebox/heist.md) | Easy | Cisco config crack, RID brute + spray, Procdump Firefox, Pass-the-Password |
+| [Jeeves](./hackthebox/jeeves.md) | Easy | Unauth Jenkins Groovy RCE, KeePass, Pass-the-Hash, NTFS ADS |
 | [Jerry](./hackthebox/jerry.md) | Easy | Default Tomcat manager creds, WAR upload RCE |
 | [Legacy](./hackthebox/legacy.md) | Easy | MS08-067 |
+| [Aero](./hackthebox/aero.md) | Medium | CVE-2023-38146 (ThemeBleed) — foothold |
 
 ### TryHackMe
 
