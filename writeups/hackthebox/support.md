@@ -177,8 +177,3 @@ impacket-psexec -k -no-pass dc.support.htb
   (`addcomputer` → `rbcd -action write` → `getST -impersonate` →
   `psexec -k -no-pass`) is the reflex; drilling it means the exam-shape
   of this box takes minutes, not hours.
-
----
-
-## Time to root
-**~1h 20m** (first ILSpy use — peeked at the decrypt helper writeup, the rest solo)
