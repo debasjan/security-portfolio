@@ -1,7 +1,7 @@
 # CozyHosting — Hack The Box
 
 <p align="left">
-  <img src="./assets/cozyhosting/00-card.jpg" alt="CozyHosting HTB machine card" width="650">
+  <img src="./assets/cozyhosting/00-card.png" alt="CozyHosting HTB machine card" width="650">
 </p>
 
 | | |
