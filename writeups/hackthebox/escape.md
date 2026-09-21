@@ -259,3 +259,5 @@ Read the root flag from `C:\Users\Administrator\Desktop\root.txt`:
 ---
 
 **Machine:** [Hack The Box — Escape](https://www.hackthebox.com/machines/escape)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/escape/)

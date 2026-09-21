@@ -134,3 +134,5 @@ Root flag retrieved.
 ---
 
 **Machine:** [Hack The Box — Keeper](https://www.hackthebox.com/machines/keeper)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/keeper/)

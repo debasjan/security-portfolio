@@ -290,3 +290,5 @@ evil-winrm -i dc.voleur.htb -u Administrator -r voleur.htb
   SAM + NTDS.dit copies bypass the whole live-attack path.
 
 ---
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/voleur/)

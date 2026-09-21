@@ -142,3 +142,5 @@ Read both flags:
 ---
 
 **Machine:** [Hack The Box — Devel](https://www.hackthebox.com/machines/devel)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/devel/)

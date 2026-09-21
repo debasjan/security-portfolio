@@ -264,3 +264,5 @@ Read the final flag from `C:\Users\Administrator\Desktop\root.txt`.
 ---
 
 **Machine:** [Hack The Box — Administrator](https://www.hackthebox.com/machines/administrator)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/administrator/)

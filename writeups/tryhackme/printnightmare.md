@@ -150,3 +150,5 @@ July 2021) includes:
 ---
 
 **Room:** [TryHackMe — PrintNightmare](https://tryhackme.com/room/printnightmare)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/printnightmare/)

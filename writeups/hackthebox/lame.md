@@ -104,3 +104,5 @@ escalation phase needed. Both flags were retrieved in the same step.
 ---
 
 **Machine:** [Hack The Box — Lame](https://www.hackthebox.com/machines/lame)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/lame/)

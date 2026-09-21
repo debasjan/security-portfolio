@@ -134,3 +134,5 @@ and triggering the load. Running it delivered a root shell and the root flag.
 ---
 
 **Machine:** [Hack The Box — Expressway](https://www.hackthebox.com/machines/expressway)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/expressway/)

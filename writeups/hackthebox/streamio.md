@@ -262,3 +262,5 @@ evil-winrm -i streamio.htb -u Administrator -p '<LAPS_pw>'
   credential.
 
 ---
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/streamio/)

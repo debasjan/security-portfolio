@@ -172,3 +172,5 @@ Root shell obtained, root flag retrieved.
 ---
 
 **Machine:** [Hack The Box — UpDown](https://www.hackthebox.com/machines/updown)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/updown/)

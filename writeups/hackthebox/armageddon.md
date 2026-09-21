@@ -152,3 +152,5 @@ Root flag retrieved.
 ---
 
 **Machine:** [Hack The Box — Armageddon](https://www.hackthebox.com/machines/armageddon)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/armageddon/)

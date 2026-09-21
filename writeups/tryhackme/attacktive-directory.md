@@ -141,3 +141,5 @@ Administrator-level access on the domain controller confirmed.
 ---
 
 **Room:** [TryHackMe — Attacktive Directory](https://tryhackme.com/room/attacktivedirectory)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/attacktive-directory/)

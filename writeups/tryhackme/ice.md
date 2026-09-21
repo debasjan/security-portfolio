@@ -131,3 +131,5 @@ forward, a persistence technique built on having already compromised the
 ---
 
 **Room:** [TryHackMe — Ice](https://tryhackme.com/room/ice)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/ice/)

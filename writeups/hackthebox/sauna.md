@@ -174,3 +174,5 @@ Domain Admin, root flag retrieved.
 ---
 
 **Machine:** [Hack The Box — Sauna](https://www.hackthebox.com/machines/sauna)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/sauna/)

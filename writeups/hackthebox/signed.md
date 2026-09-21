@@ -198,3 +198,5 @@ full command execution on the DC.)*
 ---
 
 **Machine:** [Hack The Box — Signed](https://www.hackthebox.com/machines/signed)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/signed/)

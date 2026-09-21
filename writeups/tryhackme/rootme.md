@@ -112,3 +112,5 @@ Root shell obtained. Root flag retrieved.
 ---
 
 **Room:** [TryHackMe — RootMe](https://tryhackme.com/room/rrootme)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/rootme/)

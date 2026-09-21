@@ -134,3 +134,5 @@ curl localhost:1337/root/root.txt
 ---
 
 **Machine:** [Hack The Box — Broker](https://www.hackthebox.com/machines/broker)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/broker/)

@@ -111,3 +111,5 @@ were located together in a single file under the Administrator's desktop.
 ---
 
 **Machine:** [Hack The Box — Jerry](https://www.hackthebox.com/machines/jerry)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/jerry/)

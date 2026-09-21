@@ -170,3 +170,5 @@ escalation later.
 ---
 
 **Machine:** [Hack The Box — Aero](https://www.hackthebox.com/machines/aero)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/aero/)

@@ -130,3 +130,5 @@ Root flag retrieved.
 ---
 
 **Machine:** [Hack The Box — Bashed](https://www.hackthebox.com/machines/bashed)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/bashed/)

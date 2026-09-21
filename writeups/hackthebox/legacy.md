@@ -94,3 +94,5 @@ The exploit succeeded immediately, returning a session running as
 ---
 
 **Machine:** [Hack The Box — Legacy](https://www.hackthebox.com/machines/legacy)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/legacy/)

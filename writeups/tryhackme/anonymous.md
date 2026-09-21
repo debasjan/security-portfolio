@@ -127,3 +127,5 @@ Root shell obtained. Root flag retrieved.
 ---
 
 **Room:** [TryHackMe — Anonymous](https://tryhackme.com/room/anonymous)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/anonymous/)

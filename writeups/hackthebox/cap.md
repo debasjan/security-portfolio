@@ -161,3 +161,5 @@ Root shell obtained, root flag retrieved.
 ---
 
 **Machine:** [Hack The Box — Cap](https://app.hackthebox.com/machines/Cap/information)
+
+**Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/cap/)
