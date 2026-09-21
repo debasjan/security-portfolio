@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Medium |
 | **OS** | Windows (Active Directory) |
-| **Status** | ✅ Retired |
 | **Key techniques** | NTLM hash coercion (Responder), domain enumeration through MSSQL (`SUSER_SID`), Kerberos Silver Ticket forging, MSSQL `OPENROWSET(BULK)` file read |
 
 ---

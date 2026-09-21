@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Easy |
 | **OS** | Linux |
-| **Status** | ✅ Retired |
 | **Key techniques** | IDOR, packet-capture credential extraction, Linux capabilities (GTFOBins) |
 
 ---

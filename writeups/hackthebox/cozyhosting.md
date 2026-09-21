@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Easy |
 | **OS** | Linux |
-| **Status** | ✅ Retired |
 | **Key techniques** | Spring Boot Actuator session hijack, OS command injection (`${IFS}` bypass), JAR credential looting, bcrypt cracking, sudo `ssh` ProxyCommand (GTFOBins) |
 
 ---

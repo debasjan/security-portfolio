@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Easy |
 | **OS** | Windows |
-| **Status** | ✅ Retired |
 | **Key techniques** | Default Apache Tomcat manager credentials, WAR file upload RCE |
 
 ---

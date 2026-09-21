@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Easy |
 | **OS** | Linux |
-| **Status** | ✅ Retired |
 | **Key techniques** | XWiki unauthenticated RCE (CVE-2025-24893), config-file credential leak, SUID monitoring-plugin abuse (CVE-2024-32019) |
 
 ---

@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Easy |
 | **OS** | Windows |
-| **Status** | ✅ Retired |
 | **Key techniques** | EternalBlue / MS17-010 (SMB RCE) |
 
 ---

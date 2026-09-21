@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Easy |
 | **OS** | Windows (Active Directory) |
-| **Status** | ✅ Retired |
 | **Key techniques** | CVE-2025-24071 (NTLM leak via `.library-ms`), BloodHound ACL chaining, shadow credentials, AD CS ESC16 |
 
 ---

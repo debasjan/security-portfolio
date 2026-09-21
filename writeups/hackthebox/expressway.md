@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Easy |
 | **OS** | Linux |
-| **Status** | ✅ Retired |
 | **Key techniques** | UDP service discovery, IKE/IPsec PSK cracking, `sudo` chroot privilege escalation (CVE-2025-32463) |
 
 ---

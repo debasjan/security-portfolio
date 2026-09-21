@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Easy |
 | **OS** | Linux |
-| **Status** | ✅ Retired |
 | **Key techniques** | Virtual-host discovery, CrushFTP auth bypass (CVE-2025-31161), Erlang/BEAM shell abuse |
 
 ---

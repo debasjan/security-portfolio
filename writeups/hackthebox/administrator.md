@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Medium |
 | **OS** | Windows (Active Directory) |
-| **Status** | ✅ Retired |
 | **Key techniques** | Active Directory ACL abuse, Password Safe cracking, targeted Kerberoasting, DCSync |
 
 ---

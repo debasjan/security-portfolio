@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Easy |
 | **OS** | Windows (Active Directory) |
-| **Status** | ✅ Retired |
 | **Key techniques** | Anonymous SMB enumeration, GPP `cpassword` decryption, Kerberoasting |
 
 ---

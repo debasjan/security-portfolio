@@ -5,7 +5,6 @@
 | **Platform** | TryHackMe |
 | **Difficulty** | Easy |
 | **OS** | Linux |
-| **Status** | ✅ Room explicitly aimed at write-ups/beginners |
 | **Key techniques** | Multi-service fingerprinting, SSL certificate metadata inspection, CMS/version identification (WordPress, phpMyAdmin), Nikto vulnerability scanning |
 
 ---

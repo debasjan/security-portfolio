@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Easy |
 | **OS** | Linux |
-| **Status** | ✅ Retired |
 | **Key techniques** | Shellshock (CVE-2014-6271), GTFOBins `sudo perl` |
 
 ---

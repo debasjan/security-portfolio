@@ -5,7 +5,6 @@
 | **Platform** | TryHackMe |
 | **Difficulty** | Medium |
 | **OS** | Windows (Active Directory) |
-| **Status** | ✅ Room explicitly aimed at write-ups/beginners |
 | **Key techniques** | PrintNightmare (CVE-2021-1675 / CVE-2021-34527), malicious printer-driver DLL delivery via SMB, Windows Event Log / Sysmon threat hunting |
 
 ---

@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Easy |
 | **OS** | Windows (Active Directory) |
-| **Status** | ✅ Retired |
 | **Key techniques** | Offline archive/PFX cracking, certificate-based WinRM auth, PowerShell history leak, LAPS abuse |
 
 ---

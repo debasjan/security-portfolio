@@ -5,7 +5,6 @@
 | **Platform** | TryHackMe |
 | **Difficulty** | Easy |
 | **OS** | Linux |
-| **Status** | ✅ Room explicitly aimed at write-ups/beginners |
 | **Key techniques** | CMS version fingerprinting, public authenticated RCE (Fuel CMS) |
 
 ---

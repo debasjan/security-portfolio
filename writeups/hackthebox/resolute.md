@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Medium |
 | **OS** | Windows (Active Directory) |
-| **Status** | ✅ Retired |
 | **Key techniques** | Anonymous RPC/LDAP enumeration, password spraying, PowerShell transcript credential leak, DnsAdmins abuse |
 
 ---

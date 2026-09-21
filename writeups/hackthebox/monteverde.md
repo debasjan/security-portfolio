@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Medium |
 | **OS** | Windows (Active Directory) |
-| **Status** | ✅ Retired |
 | **Key techniques** | Anonymous LDAP enumeration, password spraying, Azure AD Connect credential extraction |
 
 ---

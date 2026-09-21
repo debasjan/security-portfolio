@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Medium |
 | **OS** | Windows (Active Directory) |
-| **Status** | ✅ Retired |
 | **Key techniques** | Guest SMB access, MSSQL hash capture (`xp_dirtree` + Responder), log-file credential leak, AD CS ESC1 abuse |
 
 ---

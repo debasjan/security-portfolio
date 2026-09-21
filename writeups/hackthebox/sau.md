@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Easy |
 | **OS** | Linux |
-| **Status** | ✅ Retired |
 | **Key techniques** | SSRF (CVE-2023-27163), unauthenticated command injection (Maltrail), `sudo systemctl` pager escape |
 
 ---

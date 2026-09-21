@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Easy |
 | **OS** | Linux |
-| **Status** | ✅ Retired |
 | **Key techniques** | Roundcube unauthenticated RCE (CVE-2025-49113), session/Triple-DES decryption, `sudo` misconfiguration (CVE-2025-27591) |
 
 ---

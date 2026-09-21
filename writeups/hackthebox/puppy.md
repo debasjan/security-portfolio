@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Medium |
 | **OS** | Windows (Active Directory) |
-| **Status** | ✅ Retired |
 | **Key techniques** | `GenericWrite` group abuse, KeePass 4 (Argon2) cracking, `GenericAll` forced password change, re-enabling a disabled account with `bloodyAD`, backup credential hunt, DPAPI credential decryption |
 
 ---

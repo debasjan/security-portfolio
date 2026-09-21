@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Medium |
 | **OS** | Windows |
-| **Status** | ✅ Retired |
 | **This write-up** | Foothold (user flag). Privilege escalation documented but not completed. |
 | **Key techniques** | CVE-2023-38146 (ThemeBleed) `.theme` RCE via SMB-hosted DLL |
 

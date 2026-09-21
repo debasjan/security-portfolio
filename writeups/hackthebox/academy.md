@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Easy |
 | **OS** | Linux |
-| **Status** | ✅ Retired |
 | **Key techniques** | Anonymous FTP credential leak, unrestricted file upload, cron job hijacking |
 
 ---

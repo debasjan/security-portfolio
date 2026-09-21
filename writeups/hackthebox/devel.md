@@ -9,7 +9,6 @@
 | **Platform** | Hack The Box |
 | **Difficulty** | Easy |
 | **OS** | Windows |
-| **Status** | ✅ Retired |
 | **Key techniques** | Anonymous FTP write, ASPX reverse shell via IIS, kernel privilege escalation |
 
 ---

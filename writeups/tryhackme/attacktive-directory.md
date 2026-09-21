@@ -5,7 +5,6 @@
 | **Platform** | TryHackMe |
 | **Difficulty** | Medium |
 | **OS** | Windows (Active Directory) |
-| **Status** | ✅ Room explicitly aimed at write-ups/beginners |
 | **Key techniques** | Kerberos user enumeration (Kerbrute), AS-REP Roasting, SMB share credential leak, DCSync via a synced backup account |
 
 ---

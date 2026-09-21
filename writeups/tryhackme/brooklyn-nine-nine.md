@@ -5,7 +5,6 @@
 | **Platform** | TryHackMe |
 | **Difficulty** | Easy |
 | **OS** | Linux |
-| **Status** | ✅ Room explicitly aimed at write-ups/beginners |
 | **Key techniques** | FTP credential discovery, SSH login, SUID `less` abuse (GTFOBins) |
 
 ---
