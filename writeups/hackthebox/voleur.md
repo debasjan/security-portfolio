@@ -7,7 +7,7 @@
 | | |
 |---|---|
 | **Platform** | Hack The Box |
-| **Difficulty** | Hard |
+| **Difficulty** | Medium |
 | **OS** | Windows |
 | **Status** | ✅ Rooted (~4h with breaks) |
 | **Key techniques** | office2john / Excel, AD Recycle Bin restore, RunasCs, DPAPI decrypt, targeted Kerberoast, Kerberos-only auth workflow, NTDS.dit from `C:\Backups` |
