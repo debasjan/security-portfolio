@@ -137,4 +137,6 @@ and the root flag.
 
 **Machine:** [Hack The Box — Editor](https://www.hackthebox.com/machines/editor)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/editor/)

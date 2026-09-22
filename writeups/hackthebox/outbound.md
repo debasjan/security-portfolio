@@ -152,4 +152,6 @@ gave a root shell and the root flag.
 
 **Machine:** [Hack The Box — Outbound](https://www.hackthebox.com/machines/outbound)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/outbound/)

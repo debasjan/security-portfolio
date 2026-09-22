@@ -191,4 +191,6 @@ Root flag retrieved.
 
 **Machine:** [Hack The Box — Resolute](https://www.hackthebox.com/machines/resolute)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/resolute/)

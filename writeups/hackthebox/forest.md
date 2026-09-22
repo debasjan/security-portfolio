@@ -220,4 +220,6 @@ Domain Admin, root flag retrieved from
 
 **Machine:** [Hack The Box — Forest](https://www.hackthebox.com/machines/forest)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/forest/)

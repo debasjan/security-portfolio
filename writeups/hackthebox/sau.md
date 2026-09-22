@@ -184,4 +184,6 @@ Got a shell as root and found the flag in `/root/root.txt`.
 
 **Machine:** [Hack The Box — Sau](https://www.hackthebox.com/machines/sau)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/sau/)

@@ -226,4 +226,6 @@ flag.
 
 **Machine:** [Hack The Box — Fluffy](https://www.hackthebox.com/machines/fluffy)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/fluffy/)

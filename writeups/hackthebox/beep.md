@@ -121,4 +121,6 @@ This landed directly as root — both flags retrieved in the same step.
 
 **Machine:** [Hack The Box — Beep](https://www.hackthebox.com/machines/beep)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/beep/)

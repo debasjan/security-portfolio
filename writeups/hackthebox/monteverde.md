@@ -178,4 +178,6 @@ root flag.
 
 **Machine:** [Hack The Box — Monteverde](https://www.hackthebox.com/machines/monteverde)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/monteverde/)

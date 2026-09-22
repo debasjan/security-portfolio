@@ -145,4 +145,6 @@ delivered a shell in the target account's context. Root flag retrieved.
 
 **Machine:** [Hack The Box — Academy](https://www.hackthebox.com/machines/academy)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/academy/)

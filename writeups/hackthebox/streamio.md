@@ -262,4 +262,47 @@ evil-winrm -i streamio.htb -u Administrator -p '<LAPS_pw>'
 
 ---
 
+
+---
+
+## Remediation
+
+- **Fuzz your own vhosts before an attacker does.** Enforce a strict
+  vhost whitelist on the web server (nginx `server_name` / IIS
+  host-header binding) so unlisted vhosts return `404` instead of
+  serving `watch.streamio.htb`. `ffuf`/`gobuster -mode vhost` are
+  cheap smoke tests to run on a schedule.
+- **Parameterise every SQL query.** MSSQL, MySQL and PostgreSQL all
+  support parameterised queries or prepared statements — using them
+  removes UNION-based extraction as a class of vulnerability. Do not
+  rely on `escape()` helpers.
+- **Turn off `allow_url_include` and consider disabling PHP filter
+  wrappers** so `php://filter/read=convert.base64-encode` cannot leak
+  application source. Explicit allowlists of includable files beat
+  blacklists on the parameter value.
+- **Never save credentials in Firefox on shared / production hosts.**
+  If the workflow requires it, use a master password (properly
+  configured key3/key4) — the master-password key derivation slows
+  `firepwd.py` down enough to be useful.
+- **Tighten AD ACLs on LAPS-readable groups.** `WriteOwner` on a group
+  that can read `ms-mcs-admpwd` is the same as DA to an attacker.
+  Least privilege on Tier-0 group ownership; alert on ownership
+  changes.
+
+---
+
+## Tools used
+
+- `nmap`, `ffuf`, `gobuster` (vhost mode)
+- Burp Suite
+- Custom Python for UNION SQLi extraction
+- `hydra`
+- `evil-winrm`, `nxc`
+- `firepwd.py`
+- `bloodhound-python` + BloodHound GUI
+- `bloodyAD` (owner + member manipulation)
+- Impacket (`smbserver.py`)
+
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/streamio/)

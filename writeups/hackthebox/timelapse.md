@@ -179,4 +179,6 @@ That password gave a WinRM session as Administrator and the root flag.
 
 **Machine:** [Hack The Box — Timelapse](https://www.hackthebox.com/machines/timelapse)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/timelapse/)

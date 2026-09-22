@@ -22,6 +22,31 @@ artifacts in Windows Event Logs and Sysmon telemetry.
 
 ---
 
+## Recon
+
+This is a guided TryHackMe room, not an open-ended box — target scope,
+credentials for `spoolsvc`, and the fact that the vulnerable Print
+Spooler service is running on the DC are all given in the task brief.
+So "recon" here is confirming the environment matches PrintNightmare's
+preconditions rather than sweeping for open ports:
+
+- **Print Spooler service is running on the DC.** `Get-Service Spooler`
+  from a low-priv shell returns `Running`; enumerating over RPC from
+  Kali (`impacket-rpcdump @<DC>` → look for `MS-PAR / MS-RPRN`) is the
+  authenticated equivalent.
+- **The account has SMB access to the DC.** PrintNightmare loads the
+  malicious driver DLL from a UNC path, so the DC needs to be able to
+  reach a share hosted by the attacker — trivial on a lab flat
+  network, worth verifying on a segmented one.
+- **PowerShell script execution is available** for the client-side of
+  the exploit (delivering the payload). If `Set-ExecutionPolicy` is
+  locked down, `-ep bypass` on the CLI is usually enough.
+
+Once those three are true, the exploit conditions are met and I can
+move to the PoC — no port sweep needed.
+
+---
+
 ## Background
 
 The Print Spooler service is enabled by default on effectively every
@@ -135,6 +160,32 @@ July 2021) includes:
 
 ---
 
+## Remediation
+
+- **Apply the July 2021 out-of-band patch** for CVE-2021-34527 on every
+  Windows host, not just DCs. The RCE path was fixed there.
+- **Disable the Print Spooler service on Domain Controllers** and any
+  server that does not need to accept print jobs — the DC is not a
+  printer, so this is a zero-impact hardening step:
+
+  ```powershell
+  Stop-Service -Name Spooler -Force
+  Set-Service -Name Spooler -StartupType Disabled
+  ```
+
+- **Restrict `Point and Print` policy** through GPO — set
+  `NoWarningNoElevationOnInstall = 0` and `UpdatePromptSettings = 0`
+  under `HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Printers\PointAndPrint`
+  so non-admin users cannot install a print driver silently even if
+  the spooler stays on.
+- **Detect the pattern** by hunting for the exact indicators from the
+  defensive half of the room: Event ID `316` in
+  `Microsoft-Windows-PrintService/Admin` when a driver load fails, and
+  Sysmon Event ID `7` (`ImageLoad`) showing `spoolsv.exe` loading a
+  DLL from a UNC path or an unusual local path.
+
+---
+
 ## Tools used
 
 - CVE-2021-1675 PoC
@@ -149,5 +200,7 @@ July 2021) includes:
 ---
 
 **Room:** [TryHackMe — PrintNightmare](https://tryhackme.com/room/printnightmare)
+
+---
 
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/printnightmare/)

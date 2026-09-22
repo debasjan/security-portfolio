@@ -106,4 +106,6 @@ Root shell obtained. Root flag retrieved.
 
 **Room:** [TryHackMe — Brooklyn Nine Nine](https://tryhackme.com/room/brooklynninenine)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/brooklyn-nine-nine/)

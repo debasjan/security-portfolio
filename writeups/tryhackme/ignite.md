@@ -96,4 +96,6 @@ box. Root flag retrieved.
 
 **Room:** [TryHackMe — Ignite](https://tryhackme.com/room/ignite)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/ignite/)

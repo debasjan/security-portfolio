@@ -105,4 +105,6 @@ immediately, with no privilege escalation required at all.
 
 **Machine:** [Hack The Box — Blue](https://www.hackthebox.com/machines/blue)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/blue/)

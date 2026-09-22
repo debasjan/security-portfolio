@@ -143,4 +143,6 @@ Administrator's desktop.
 
 **Machine:** [Hack The Box — Optimum](https://www.hackthebox.com/machines/optimum)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/optimum/)

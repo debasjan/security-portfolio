@@ -119,4 +119,6 @@ for actual encryption or access control.
 
 **Room:** [TryHackMe — Easy Peasy](https://tryhackme.com/room/easypeasy)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/easy-peasy/)

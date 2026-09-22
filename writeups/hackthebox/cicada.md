@@ -218,4 +218,6 @@ Rooted, and read the flag from
 
 **Machine:** [Hack The Box — Cicada](https://www.hackthebox.com/machines/cicada)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/cicada/)

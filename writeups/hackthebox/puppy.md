@@ -273,4 +273,6 @@ Read the final flag from `C:\Users\Administrator\Desktop\root.txt`:
 
 **Machine:** [Hack The Box — Puppy](https://www.hackthebox.com/machines/puppy)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/puppy/)

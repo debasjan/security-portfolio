@@ -118,4 +118,6 @@ Root shell obtained. Root flag retrieved.
 
 **Room:** [TryHackMe — LazyAdmin](https://tryhackme.com/room/lazyadmin)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/lazyadmin/)

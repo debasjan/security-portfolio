@@ -164,4 +164,6 @@ Root shell, root flag retrieved.
 
 **Machine:** [Hack The Box — Nibbles](https://www.hackthebox.com/machines/nibbles)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/nibbles/)

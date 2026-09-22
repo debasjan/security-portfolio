@@ -104,4 +104,6 @@ phase was needed on this box.
 
 **Room:** [TryHackMe — ToolsRus](https://tryhackme.com/room/toolsrus)
 
+---
+
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/toolsrus/)
