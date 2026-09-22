@@ -56,10 +56,10 @@ commands. **Retired / permitted machines only.**
 | [Blue](./hackthebox/blue.md) | Easy | EternalBlue / MS17-010 |
 | [Devel](./hackthebox/devel.md) | Easy | Anonymous FTP → ASPX RCE, kernel privesc |
 | [Heist](./hackthebox/heist.md) | Easy | Cisco config crack, RID brute + spray, Procdump Firefox, Pass-the-Password |
-| [Jeeves](./hackthebox/jeeves.md) | Easy | Unauth Jenkins Groovy RCE, KeePass, Pass-the-Hash, NTFS ADS |
 | [Jerry](./hackthebox/jerry.md) | Easy | Default Tomcat manager creds, WAR upload RCE |
 | [Legacy](./hackthebox/legacy.md) | Easy | MS08-067 |
 | [Aero](./hackthebox/aero.md) | Medium | CVE-2023-38146 (ThemeBleed) — foothold |
+| [Jeeves](./hackthebox/jeeves.md) | Medium | Unauth Jenkins Groovy RCE, KeePass, Pass-the-Hash, NTFS ADS |
 
 ### TryHackMe
 
