@@ -65,17 +65,42 @@ commands. **Retired / permitted machines only.**
 
 | Room | Difficulty | Techniques |
 |---|---|---|
+| [Alfred](./tryhackme/alfred.md) | Easy | Jenkins default creds, Nishang reverse shell, Windows token impersonation |
 | [Anonymous](./tryhackme/anonymous.md) | Easy | Anonymous/writable FTP, SUID `env` |
-| [Attacktive Directory](./tryhackme/attacktive-directory.md) | Medium | Kerbrute enum, AS-REP Roasting, DCSync via backup account |
 | [Brooklyn Nine Nine](./tryhackme/brooklyn-nine-nine.md) | Easy | FTP credential leak, SUID `less` |
 | [Easy Peasy](./tryhackme/easy-peasy.md) | Easy | Layered encoding, hash cracking, steganography |
+| [Game Zone](./tryhackme/game-zone.md) | Easy | SQL injection, John password crack, SSH port-forward |
 | [Ice](./tryhackme/ice.md) | Easy | Icecast RCE, UAC bypass, Mimikatz/Kiwi |
 | [Ignite](./tryhackme/ignite.md) | Easy | Fuel CMS authenticated RCE |
+| [Kenobi](./tryhackme/kenobi.md) | Easy | SMB/NFS enum, ProFTPD `mod_copy`, SUID path hijack |
 | [LazyAdmin](./tryhackme/lazyadmin.md) | Easy | CMS credential reuse, writable `sudo` script |
-| [PrintNightmare](./tryhackme/printnightmare.md) | Medium | CVE-2021-1675/34527, Event Log/Sysmon threat hunting |
+| [Overpass 2 - Hacked](./tryhackme/overpass-2-hacked.md) | Easy | PCAP forensics, hash cracking, cron-hijack timeline |
 | [Probe](./tryhackme/probe.md) | Easy | Multi-service fingerprinting (enumeration only) |
 | [RootMe](./tryhackme/rootme.md) | Easy | Upload filter bypass, SUID Python |
+| [Steel Mountain](./tryhackme/steel-mountain.md) | Easy | HttpFileServer RCE (CVE-2014-6287), unquoted service path |
 | [ToolsRus](./tryhackme/toolsrus.md) | Easy | Basic-auth brute-force, Tomcat manager RCE |
+| [Vulnversity](./tryhackme/vulnversity.md) | Easy | Upload extension bypass, SUID `systemctl` |
+| [Attacktive Directory](./tryhackme/attacktive-directory.md) | Medium | Kerbrute enum, AS-REP Roasting, DCSync via backup account |
+| [Brainpan 1](./tryhackme/brainpan-1.md) | Medium | Stack buffer overflow, EIP control, custom shellcode |
+| [Brainstorm](./tryhackme/brainstorm.md) | Medium | Windows buffer overflow, SEH restricted, `msfvenom` |
+| [Daily Bugle](./tryhackme/daily-bugle.md) | Medium | Joomla SQLi, `yara` cracked, Yum sudo abuse |
+| [Gatekeeper](./tryhackme/gatekeeper.md) | Medium | Windows buffer overflow with badchars, Firefox creds |
+| [HackPark](./tryhackme/hackpark.md) | Medium | BlogEngine plugin RCE, WinPEAS, SYSTEM privesc |
+| [Mr Robot CTF](./tryhackme/mr-robot-ctf.md) | Medium | WordPress theme RCE, SUID `nmap` interactive |
+| [PrintNightmare](./tryhackme/printnightmare.md) | Medium | CVE-2021-1675/34527, Event Log/Sysmon threat hunting |
+| [Relevant](./tryhackme/relevant.md) | Medium | Anonymous SMB creds, SeImpersonatePrivilege, PrintSpoofer |
+| [Skynet](./tryhackme/skynet.md) | Medium | Anonymous SMB, Squirrelmail, Cuppa CMS LFI/RFI, `tar` wildcard cron |
+| [Internal](./tryhackme/internal.md) | Hard | wpscan brute, WP theme editor RCE, SSH pivot to Jenkins, Docker root |
+| [Retro](./tryhackme/retro.md) | Hard | WordPress + Hydra, RDP, CVE-2019-1388 UAC bypass |
+
+### Others (TCM Security / VulnHub practice)
+
+| Machine | Difficulty | Techniques |
+|---|---|---|
+| [Kioptrix Level 1](./others/kioptrix-1.md) | Easy | Apache mod_ssl OpenFuck (CVE-2002-0082), Samba RCE |
+| [TCM Dev](./others/tcm-dev.md) | Easy | Directory enum, credential reuse, sudo `find` |
+| [TCM Butler](./others/tcm-butler.md) | Easy | Jenkins default creds, Groovy shell, Windows privesc |
+| [TCM Black Pearl](./others/tcm-black-pearl.md) | Medium | Chained web enum, DB creds, sudo abuse |
 
 ---
 
