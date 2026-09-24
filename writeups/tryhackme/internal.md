@@ -1,7 +1,7 @@
 # Internal — TryHackMe
 
 <p align="left">
-  <img src="./assets/internal/00-card.png" alt="Internal machine card" width="650">
+  <img src="./assets/internal/00-card.jpg" alt="Internal machine card" width="650">
 </p>
 
 | | |
