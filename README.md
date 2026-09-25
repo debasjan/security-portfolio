@@ -28,7 +28,7 @@ from machines I've solved.
 
 | Platform | Profile | Progress |
 |---|---|---|
-| Hack The Box | [debas](https://profile.hackthebox.com/profile/019d1cb4-4b60-7102-8db2-fa81f7ab5df5) | 44 machines owned · Rank: Professional |
+| Hack The Box | [debas](https://profile.hackthebox.com/profile/019d1cb4-4b60-7102-8db2-fa81f7ab5df5) | 45 machines owned · Rank: Professional |
 | TryHackMe | [ZXCZX](https://tryhackme.com/p/zxczx) | 257 rooms completed · Top 1% |
 | Proving Grounds | [OffSec profile](https://portal.offsec.com/public-profile/e83a8c72-0f1e-4140-a077-0ecd02de5374) | 21/283 machines completed |
 | HTB Pro Labs | Dante (Cert. HTBCERT-EB6BAAD3CB) | ✅ Completed — 22 Feb 2026 |

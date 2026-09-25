@@ -23,6 +23,7 @@ commands. **Retired / permitted machines only.**
 | [Resolute](./hackthebox/resolute.md) | Medium | Anonymous enum, PS transcript leak, DnsAdmins abuse |
 | [Signed](./hackthebox/signed.md) | Medium | MSSQL-only enum, Responder crack, Kerberos Silver Ticket |
 | [StreamIO](./hackthebox/streamio.md) | Medium | UNION SQLi, LFI→source, `firepwd` on `key4.db`, `WriteOwner`→LAPS |
+| [TombWatcher](./hackthebox/tombwatcher.md) | Medium | WriteSPN → targeted Kerberoast, AddSelf, gMSA read, ForceChangePassword, WriteOwner, dacledit on OU, AD CS ESC3 |
 | [Voleur](./hackthebox/voleur.md) | Medium | office2john, AD Recycle Bin restore, DPAPI, targeted Kerberoast (Kerberos-only) |
 | [Blackfield](./hackthebox/blackfield.md) | Hard | Anonymous SMB user enum, AS-REP Roasting, `ForceChangePassword`, LSASS dump w/ pypykatz, NetExec `backup_operator` |
 
