@@ -75,7 +75,7 @@ set VHOST blackpearl.tcm
 ![rhost vhost](./assets/tcm-black-pearl/rhost-vhost.png)
 
 We can run this exploit
-![run](./assets/tcm-black-pearl/run.png)
+![Running the exploit against TCM Black Pearl](./assets/tcm-black-pearl/run.png)
 
 We need to get better shell on this machine.
 We can do this with python script if python is on the machine

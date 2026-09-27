@@ -41,7 +41,7 @@ Escalate your privileges to root.
 ![payload script + shell machine](./assets/brainpan-1/payload-script-shell-machine.png)
 ![shell](./assets/brainpan-1/shell.png)
 ![sudo -l](./assets/brainpan-1/sudo-l.png)
-![root](./assets/brainpan-1/root.png)
+![Root shell on Brainpan after privilege escalation](./assets/brainpan-1/root.png)
 ---
 
 **Live version:** [read this write-up on my blog](https://debasjan.github.io/writeups/brainpan-1/)

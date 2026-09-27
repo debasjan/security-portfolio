@@ -167,7 +167,7 @@ In Linux, SUID (**set owner userId upon execution**) is a particular type of fil
 
 For example, the binary file to change your password has the SUID bit set on it (`/usr/bin/passwd`). This is because to change your password, you will need to write to the shadowers file that you do not have access to; `root` does, so it has root privileges to make the right changes.
 
-![SUID](./assets/vulnversity/suid-2.jpg)'
+![Enumerating SUID binaries on Vulnversity for the systemctl privesc](./assets/vulnversity/suid-2.jpg)'
 
 It's challenge time! We have guided you through this far. Unleash your skills and exploit this system further to escalate your privileges and answer the following questions.
 

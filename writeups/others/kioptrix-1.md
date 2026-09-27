@@ -147,7 +147,7 @@ hostname
 	- Follow the instruction
 
 ```bash
-git clone https://github.com/heltonWernik/OpenFuck.git
+git clone https://github.com/heltonWernik/OpenLuck.git
 cd OpenFuck
 apt-get install libssl-dev
 gcc -o OpenFuck OpenFuck.c -lcrypto

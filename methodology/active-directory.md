@@ -133,6 +133,6 @@ psexec / getST / getTGT) · `certipy` · `evil-winrm` · `mimikatz` · `Rubeus` 
 
 ## References
 
-- [The Hacker Recipes — Active Directory](https://www.thehacker.recipes/ad/)
+- [The Hacker Recipes](https://www.thehacker.recipes/)
 - [HackTricks — Active Directory Methodology](https://book.hacktricks.xyz/windows-hardening/active-directory-methodology)
 - [BloodHound docs](https://bloodhound.readthedocs.io)

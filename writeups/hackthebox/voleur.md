@@ -41,7 +41,7 @@ NTLM, and a final `getTGT` + `evil-winrm -r voleur.htb` lands the DC.
 sudo nmap -p- -sCV <TARGET_IP>
 ```
 
-![nmap](./assets/voleur/01-nmap.png)
+![Initial nmap scan of Voleur](./assets/voleur/01-nmap.png)
 
 Kerberos-heavy AD environment (KDC / LDAP / GC / SMB / WinRM). Added
 the DC FQDN to `/etc/hosts` (this **must** be right for Kerberos):
@@ -134,7 +134,7 @@ ls -Force C:\Users\todd.wolfe\AppData\Roaming\Microsoft\Protect\<SID>\
 ![AppData](./assets/voleur/22-appdata-todd.png)
 ![Protect folder](./assets/voleur/23-protect-appdata.png)
 ![Protect subfolder](./assets/voleur/24-protect-appdata-2.png)
-![SID](./assets/voleur/25-sid.png)
+![Resolving the SID of todd.wolfe for DPAPI blob extraction](./assets/voleur/25-sid.png)
 
 Exfil via SMB (evil-winrm `download` is unreliable on hidden+system
 attributes; SMB copy is safer):

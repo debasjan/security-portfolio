@@ -179,7 +179,7 @@ We want now to abuse that feature and be able to escalate into root
 
 Go to website:
 
-[GTFOBins](https://gtfobins.github.io/)
+[GTFOBins](https://gtfobins.org/)
 
 Great websie for escalations. We are going to select suda and scrolling down for zip.
 

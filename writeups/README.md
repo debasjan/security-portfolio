@@ -23,7 +23,7 @@ commands. **Retired / permitted machines only.**
 | [Resolute](./hackthebox/resolute.md) | Medium | Anonymous enum, PS transcript leak, DnsAdmins abuse |
 | [Signed](./hackthebox/signed.md) | Medium | MSSQL-only enum, Responder crack, Kerberos Silver Ticket |
 | [StreamIO](./hackthebox/streamio.md) | Medium | UNION SQLi, LFI→source, `firepwd` on `key4.db`, `WriteOwner`→LAPS |
-| [TombWatcher](./hackthebox/tombwatcher.md) | Medium | WriteSPN → targeted Kerberoast, AddSelf, gMSA read, ForceChangePassword, WriteOwner, dacledit on OU, AD CS ESC3 |
+| [TombWatcher](./hackthebox/tombwatcher.md) | Medium | WriteSPN → targeted Kerberoast, AddSelf, gMSA read, ForceChangePassword, WriteOwner, dacledit on OU, AD CS ESC15 → ESC3 chain |
 | [Voleur](./hackthebox/voleur.md) | Medium | office2john, AD Recycle Bin restore, DPAPI, targeted Kerberoast (Kerberos-only) |
 | [Blackfield](./hackthebox/blackfield.md) | Hard | Anonymous SMB user enum, AS-REP Roasting, `ForceChangePassword`, LSASS dump w/ pypykatz, NetExec `backup_operator` |
 
@@ -110,7 +110,7 @@ commands. **Retired / permitted machines only.**
 **Hack The Box** — **retired machines only**. Never active machines — HTB's
 terms explicitly prohibit it and reserve the right to pursue legal action.
 Policy is checked at publish time since it can change; see
-[HTB's write-up policy](https://help.hackthebox.com/en/articles/5188925-can-i-create-write-ups-about-hackthebox-content).
+[HTB's write-up policy](https://help.hackthebox.com/en/articles/5188925-streaming-writeups-walkthroughs-of-hackthebox-content).
 
 **TryHackMe** — generally the most permissive; many rooms explicitly
 encourage write-ups. Check the specific room's description regardless.

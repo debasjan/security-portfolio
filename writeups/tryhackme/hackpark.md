@@ -78,7 +78,7 @@ Below is a mini cheatsheet:
 
 ## **Compromise the machine**
 
-In this task, you will identify and execute a public exploit (from [exploit-db.com](http://www.exploit-db.com)) to get initial access on this Windows machine!
+In this task, you will identify and execute a public exploit (from [exploit-db.com](https://www.exploit-db.com/)) to get initial access on this Windows machine!
 
 Exploit-Database is a CVE (common vulnerability and exposures) archive of public exploits and corresponding vulnerable software, developed for the use of penetration testers and vulnerability researches. It is owned by Offensive Security (who are responsible for OSCP and Kali).
 
@@ -88,7 +88,7 @@ Now you have logged into the website, are you able to identify the version of th
 3.3.6.0
 ![hackpark blogengine version](./assets/hackpark/hackpark-blogengine-version.png)
 
-Use the [exploit database archive](http://www.exploit-db.com) to find an exploit to gain a reverse shell on this system.
+Use the [exploit database archive](https://www.exploit-db.com/) to find an exploit to gain a reverse shell on this system.
 
 What is the CVE?
 CVE-2019-6714
@@ -137,7 +137,7 @@ run
 ![hackpark shell upload](./assets/hackpark/hackpark-shell-upload.png)
 ![hackpark multi handler](./assets/hackpark/hackpark-multi-handler.png)
 
-You can run metasploit commands such as `sysinfo` to get detailed information about the Windows system. Then feed this information into the [windows-exploit-suggester](https://github.com/GDSSecurity/Windows-Exploit-Suggester) script and quickly identify any obvious vulnerabilities.
+You can run metasploit commands such as `sysinfo` to get detailed information about the Windows system. Then feed this information into the [windows-exploit-suggester](https://github.com/strozfriedberg/Windows-Exploit-Suggester) script and quickly identify any obvious vulnerabilities.
 
 What is the OS version of this windows machine?
 Windows 2012 R2 (6.3 Build 9600)
@@ -200,7 +200,7 @@ After generating our payload we need to pull this onto the box using [powershell
 
 _Tip: It's common to find `C:\Windows\Temp` is world writable!_
 
-Now you know how to pull files from your machine to the victims machine, we can pull winPEAS.bat to the system using the same method! ([You can find winPEAS here](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/winPEAS/winPEASbat))
+Now you know how to pull files from your machine to the victims machine, we can pull winPEAS.bat to the system using the same method! ([You can find winPEAS here](https://github.com/peass-ng/PEASS-ng/tree/master/winPEAS/winPEASbat))
 
 WinPeas is a great tool which will enumerate the system and attempt to recommend potential vulnerabilities that we can exploit. The part we are most interested in for this room is the running processes!
 

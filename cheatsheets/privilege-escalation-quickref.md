@@ -124,7 +124,7 @@ pth-winexe -U <domain>/<user>%<lmhash>:<nthash> //<TARGET_IP> cmd.exe
 find / -perm -u=s -type f 2>/dev/null
 find / -type f -perm -4000 -user root 2>/dev/null
 getcap -r / 2>/dev/null                        # look for cap_setuid, etc.
-# then check https://gtfobins.github.io for the exact binary
+# then check https://gtfobins.org for the exact binary
 ```
 
 ### sudo rights

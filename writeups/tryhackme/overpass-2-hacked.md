@@ -60,11 +60,11 @@ Crack the hash using rockyou and a cracking tool of your choice. What's the pass
 november16
 
 ![ssh backdoor](./assets/overpass-2-hacked/ssh-backdoor.png)
-![salt](./assets/overpass-2-hacked/salt.png)
+![Salt value recovered from the attacker's PCAP capture](./assets/overpass-2-hacked/salt.png)
 ![default hash](./assets/overpass-2-hacked/default-hash.png)
 ![hash attacker used](./assets/overpass-2-hacked/hash-attacker-used.png)
-![hash](./assets/overpass-2-hacked/hash.png)
-![1710](./assets/overpass-2-hacked/1710.png)
+![Password hash recovered from the attacker's backdoor script](./assets/overpass-2-hacked/hash.png)
+![Attacker's SSH backdoor discovered on TCP port 1710](./assets/overpass-2-hacked/1710.png)
 ![cracked](./assets/overpass-2-hacked/cracked.png)
 
 

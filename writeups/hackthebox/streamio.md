@@ -39,7 +39,7 @@ LAPS password and lands `Administrator` on the DC.
 sudo nmap -p- -sCV <TARGET_IP>
 ```
 
-![nmap](./assets/streamio/01-nmap.png)
+![Initial nmap scan of StreamIO](./assets/streamio/01-nmap.png)
 
 - **53** — DNS
 - **80 / 443** — HTTP/HTTPS (`streamio.htb`)

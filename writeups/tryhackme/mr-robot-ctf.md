@@ -79,7 +79,7 @@ Using the discovered credentials, log in at `/wp-login.php` as `elliot`.
 ![wordpress](./assets/mr-robot-ctf/wordpress.png)
 
 After exploring wp-admin I noticed that we can edit themes. To do that I go to : Appearance –> Editor –> then on the right click Archives. Let’s try to get a reverse shell that way.
-`https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.ph`
+`https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php`
 
 ![reverse shell upload](./assets/mr-robot-ctf/reverse-shell-upload.png)
 
@@ -146,7 +146,7 @@ find / -perm -u=s -type f 2>/dev/null
 
 Note that we have "nmap" as a hint for the third key. So after some investigation, I found there is a weakness in Nmap, which you can set up into interactive mode. That allows to run shell commands inside of nmap
 
-Technique reference:: `https://gtfobins.github.io/gtfobins/nmap/
+Technique reference:: `https://gtfobins.org/gtfobins/nmap/
 ![gtfo nmap](./assets/mr-robot-ctf/gtfo-nmap.png)
 
 ### 10. Getting root and the third key

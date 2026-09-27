@@ -43,7 +43,7 @@ THM{1fk5kf469devly1gl320zafgl345pv}
 
 
 
-![scan](./assets/relevant/scan.png)
+![nmap scan output for the Relevant box](./assets/relevant/scan.png)
 ![smbclient](./assets/relevant/smbclient.png)
 ![smbclient disk](./assets/relevant/smbclient-disk.png)
 

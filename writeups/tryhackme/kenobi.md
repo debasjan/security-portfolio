@@ -140,7 +140,7 @@ d0b0f3f53b6caa532a83915e19224899
 
 ## **Privilege Escalation with Path Variable Manipulation**
 
-![SUID](./assets/kenobi/suid-2.png)
+![Enumerating SUID binaries for a path-hijack candidate](./assets/kenobi/suid-2.png)
 
 Lets first understand what what SUID, SGID and Sticky Bits are.
 
