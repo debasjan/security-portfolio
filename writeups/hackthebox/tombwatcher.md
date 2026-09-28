@@ -500,7 +500,8 @@ evil-winrm -i 10.129.232.167 -u administrator \
   client authentication` on this box. The reliable finish was
   ESC15 → ESC3: use the injected `Certificate Request Agent` EKU
   to enroll on behalf of Administrator. Two certificates instead
-  of one, but every DC accepts the outcome.
+  of one, and the resulting cert authenticated as Administrator
+  reliably on this target.
 - **Two-step certificate flows** are the same idea as ACL chains:
   cert #1 (to me) is not the target — it's the key that lets me
   request cert #2 (on someone else's behalf).
