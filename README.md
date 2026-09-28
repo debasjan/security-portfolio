@@ -19,7 +19,7 @@ repository is the public record of that practice — methodology I've written
 from my own notes, and write-ups from machines I've solved.
 
 - 🎯 **Goal:** junior penetration tester / internal pentesting / red team
-- 📜 **Certifications:** [eJPT](https://certs.ine.com/e5da4c9b-82af-4036-87af-0da6644de771) · OSCP (in progress)
+- 📜 **Certifications:** [eJPT](https://certs.ine.com/e5da4c9b-82af-4036-87af-0da6644de771) · OSCP PEN-200 preparation / exam attempted
 - 🛠️ **Focus areas:** Active Directory · Linux/Windows privilege escalation · enumeration · pivoting
 
 ---
