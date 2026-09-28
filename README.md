@@ -35,6 +35,21 @@ from my own notes, and write-ups from machines I've solved.
 
 ---
 
+## ⭐ Featured write-ups
+
+Flagship chains — the ones I'd point a hiring manager at first:
+
+| Write-up | Difficulty | Why it's here |
+|---|---|---|
+| [TombWatcher](./writeups/hackthebox/tombwatcher.md) | Medium · AD | Long ACL chain — targeted Kerberoast, gMSA, WriteOwner, AD Recycle Bin revival, AD CS ESC15 → ESC3 |
+| [Blackfield](./writeups/hackthebox/blackfield.md) | Hard · AD | AS-REP roasting, ForceChangePassword, LSASS dump with pypykatz, NetExec backup_operator DCSync |
+| [Fluffy](./writeups/hackthebox/fluffy.md) | Easy · AD | CVE-2025-24071 (Explorer spoofing), ACL chaining, AD CS ESC16 |
+| [Administrator](./writeups/hackthebox/administrator.md) | Medium · AD | Full domain-compromise chain built entirely on ACL abuse |
+
+➡️ **[Full write-up index](./writeups/README.md)**
+
+---
+
 ## 📚 Methodology
 
 Structured playbooks built from my own notes across dozens of machines:
