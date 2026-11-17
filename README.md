@@ -32,6 +32,7 @@ from my own notes, and write-ups from machines I've solved.
 | TryHackMe | [ZXCZX](https://tryhackme.com/p/zxczx) | 257 rooms completed · Top 1% |
 | Proving Grounds | [OffSec profile](https://portal.offsec.com/public-profile/e83a8c72-0f1e-4140-a077-0ecd02de5374) | 21/283 machines completed |
 | HTB Pro Labs | Dante (Cert. HTBCERT-EB6BAAD3CB) | ✅ Completed — 22 Feb 2026 |
+| HTB Pro Labs | Zephyr — Red Team Operator Level II (Cert. HTBCERT-93EF46F26A) | ✅ Completed — 3 Nov 2026 |
 
 ---
 
