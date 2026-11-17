@@ -33,6 +33,7 @@ commands. **Retired / permitted machines only.**
 |---|---|---|
 | [Cap](./hackthebox/cap.md) | Easy | IDOR, pcap credential extraction, Linux capabilities |
 | [CozyHosting](./hackthebox/cozyhosting.md) | Easy | Spring Actuator session hijack, cmd injection (`${IFS}`), sudo `ssh` |
+| [Dog](./hackthebox/dog.md) | Easy | Exposed `.git` leak, Backdrop CMS credential reuse, module-upload RCE, sudo `bee eval` |
 | [Nibbles](./hackthebox/nibbles.md) | Easy | Source recon, CMS RCE, sudo misconfiguration |
 | [Academy](./hackthebox/academy.md) | Easy | Anonymous FTP leak, upload RCE, cron hijack |
 | [Armageddon](./hackthebox/armageddon.md) | Easy | Drupalgeddon2, config leak, GTFOBins `snap` |
